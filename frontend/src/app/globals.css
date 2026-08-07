@@ -1,0 +1,408 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Ferrari Premium Design Tokens ───────────────────────────── */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-outfit);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-primary: #fc3b10; /* Rosso Corsa */
+  --color-primary-active: #b01e0a;
+  --color-primary-hover: #9d2211;
+  --color-canvas: #181818;
+  --color-canvas-elevated: #303030;
+  --color-canvas-light: #ffffff;
+  --color-surface-card: #303030;
+  
+  --color-hairline: #303030;
+  --color-hairline-on-light: #d2d2d2;
+  --color-hairline-soft: #ebebeb;
+  
+  --color-body: #969696;
+  --color-body-strong: #ffffff;
+  --color-body-on-light: #181818;
+  --color-muted: #666666;
+  --color-muted-soft: #8f8f8f;
+  
+  --color-on-primary: #ffffff;
+  --color-accent-yellow: #fff200;
+  
+  --color-semantic-info: #4c98b9;
+  --color-semantic-success: #03904a;
+  --color-semantic-warning: #f13a2c;
+  
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+}
+
+/* ─── Design Variables ─────────────────────────────────────────── */
+
+:root {
+  --background: #181818; /* Near-black */
+  --foreground: #ffffff; /* Pure white */
+  --card: #303030; /* Elevated canvas */
+  --card-foreground: #ffffff;
+  --popover: #181818;
+  --popover-foreground: #ffffff;
+  --primary: #fc3b10; /* Rosso Corsa */
+  --primary-foreground: #ffffff;
+  --secondary: #303030;
+  --secondary-foreground: #ffffff;
+  --muted: #303030;
+  --muted-foreground: #969696;
+  --accent: #303030;
+  --accent-foreground: #fc3b10;
+  --destructive: #f13a2c;
+  --border: #303030; /* Thin hairline */
+  --input: #181818;
+  --ring: #fc3b10;
+  --radius: 0px; /* Luxury sharp by default! */
+  
+  --sidebar: #181818;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #fc3b10;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #303030;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #303030;
+  --sidebar-ring: #fc3b10;
+}
+
+/* Force dark vars on .dark as well to keep the unified premium look */
+.dark {
+  --background: #181818;
+  --foreground: #ffffff;
+  --card: #303030;
+  --card-foreground: #ffffff;
+  --border: #303030;
+}
+
+/* ─── Base Styles ──────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar matching luxury theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #181818;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fc3b10;
+  }
+}
+
+/* ─── Premium Layout & Aesthetic Classes ───────────────────────── */
+
+@layer utilities {
+  /* Minimal & Premium Layouts */
+  .section-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  @media (min-width: 768px) {
+    .section-container {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  /* Thin 1px Hairlines */
+  .border-hairline {
+    border: 1px solid #303030;
+  }
+  .border-hairline-light {
+    border: 1px solid #d2d2d2;
+  }
+  .border-hairline-soft {
+    border: 1px solid #ebebeb;
+  }
+
+  .divide-hairline > * + * {
+    border-top: 1px solid #303030;
+  }
+
+  /* Sharp Button System */
+  .btn-primary {
+    background-color: #fc3b10;
+    color: #ffffff;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    padding: 14px 32px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #b01e0a;
+  }
+  
+  .btn-primary:active {
+    background-color: #9d2211;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: 1px solid #ffffff;
+    padding: 13px 31px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-outline-light {
+    background-color: transparent;
+    color: #181818;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    border: 1px solid #181818;
+    padding: 13px 31px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: rgba(24, 24, 24, 0.05);
+  }
+
+  /* Custom input classes */
+  .input-on-dark {
+    background-color: #181818;
+    color: #ffffff;
+    border: 1px solid #303030;
+    border-radius: 4px;
+    padding: 14px 16px;
+    height: 48px;
+    font-size: 14px;
+    font-family: var(--font-dm-sans), sans-serif;
+    transition: all 0.2s ease;
+  }
+  
+  .input-on-dark:focus {
+    outline: none;
+    border-color: #fc3b10;
+    box-shadow: 0 0 0 1px #fc3b10;
+  }
+
+  /* Typographic Tokens */
+  .font-display-mega {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -1.6px;
+  }
+  
+  .font-display-xl {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -1.12px;
+  }
+  
+  .font-display-lg {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.36px;
+  }
+  
+  .font-display-md {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.195px;
+  }
+
+  .font-title-md {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .font-title-sm {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.08px;
+  }
+
+  .font-body-md {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  .font-body-sm {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  .font-caption-uppercase {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  .font-number-display {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -1.6px;
+  }
+
+  .font-nav-link {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+  }
+
+  /* Perforated design ticket look */
+  .ticket-perforated-edge {
+    position: relative;
+  }
+  
+  .ticket-perforated-edge::before, .ticket-perforated-edge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #181818;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .ticket-perforated-edge::before {
+    left: -8px;
+  }
+  
+  .ticket-perforated-edge::after {
+    right: -8px;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─── Premium Keyframe Animations ──────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-corsa {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-slide-up { animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-pulse-corsa { animation: pulse-corsa 2.5s ease-in-out infinite; }
+}

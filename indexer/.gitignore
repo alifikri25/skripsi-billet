@@ -1,0 +1,13 @@
+# node_modules
+node_modules/
+
+# ponder generated database & types
+.ponder/
+
+# local environment files
+.env.local
+.env.production
+.env
+
+# typescript build info
+*.tsbuildinfo

@@ -1,0 +1,28 @@
+.env
+out/
+cache/
+broadcast/
+contracts/lib/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env*
+
+# Indexer
+indexer/node_modules/
+indexer/.ponder/
+indexer/.env.local
+clean-code.md
+
+# Dokumen skripsi & catatan internal (tidak untuk repo publik)
+skripsi/
+*.pdf
+CLAUDE.md
+PRD-PERBAIKAN.md
+REVIEW.md
+ROADMAP-PRODUKSI-VS-SKRIPSI.md
+
+# Build artifacts
+contracts/.next/
+contracts/.gas-snapshot
