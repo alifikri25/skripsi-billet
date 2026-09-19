@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#fff; color:#16181d;
+      font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing:antialiased; }
+    a { color:#16181d; } a:hover { color:#4a4f57; }
+    .fig { padding:34px 38px 38px; }
+    .fig-h { border-bottom:2px solid #16181d; padding-bottom:9px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+    .fig-t { font-size:15px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .fig-s { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .fig-d { font-size:11.5px; color:#4a4f57; line-height:1.55; margin:11px 0 20px; max-width:800px; }
+    .scr { position:relative; border:1px solid #c9ccd1; background:#fff; }
+    .b   { border:1px solid #c9ccd1; }
+    .bd  { border:1px dashed #c9ccd1; }
+    .ph  { border:1px solid #c9ccd1;
+      background:repeating-linear-gradient(45deg,#eceef0 0 7px,#f6f7f8 7px 14px);
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#7b818a; }
+    .fill{ background:#f1f2f4; }
+    .bar { background:#dcdee1; height:7px; }
+    .lbl { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .lblk{ font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#16181d; font-weight:600; }
+    .h1  { font-size:21px; font-weight:700; letter-spacing:-.01em; text-transform:uppercase; }
+    .h2  { font-size:13px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .tx  { font-size:11px; color:#4a4f57; line-height:1.5; }
+    .btn { background:#16181d; color:#fff; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:10px 14px; text-align:center; }
+    .btno{ border:1px solid #16181d; color:#16181d; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:9px 13px; text-align:center; }
+    .tag { border:1px solid #c9ccd1; color:#7b818a; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:3px 7px; }
+    .tagk{ background:#16181d; color:#fff; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:4px 8px; }
+    .inp { border:1px solid #c9ccd1; background:#fafbfb; padding:9px 11px; font-size:11px; color:#9aa0a7; }
+    .mono{ font-family:"Cascadia Mono", Consolas, ui-monospace, monospace; }
+    .n   { position:absolute; width:22px; height:22px; border-radius:50%; background:#16181d; color:#fff;
+      font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 0 3px #fff; z-index:5; }
+    .leg { margin-top:24px; border-top:1px solid #c9ccd1; padding-top:16px; }
+    .legt{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:13px; }
+    .legi{ display:flex; gap:9px; align-items:flex-start; }
+    .legn{ width:19px; height:19px; border-radius:50%; background:#16181d; color:#fff; font-size:10px;
+      font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .legx{ font-size:11px; color:#3a3f46; line-height:1.5; }
+    .legx b { color:#16181d; font-weight:600; }
+  </style>
+</helmet>
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Halaman Gatekeeper</div>
+    <div class="fig-s">Rute /gatekeeper &middot; akses terbatas</div>
+  </div>
+  <div class="fig-d">Halaman operasional untuk panitia di lokasi acara. Akses dibatasi: hanya dompet yang terdaftar sebagai gatekeeper pada kontrak yang dapat menjalankan check-in. Verifikasi dilakukan dua lapis, yaitu pemindaian tiket dan pencocokan NIK pemegang, agar tiket tidak dapat dipakai oleh orang lain.</div>
+
+  <div class="scr" style="height:790px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:56px;border-bottom:1px solid #c9ccd1;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:26px;height:26px;"></div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+          <div class="lbl" style="font-size:8px;">Gatekeeper Scan</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lblk">Scanner Area</div><div class="lbl">Halaman Pembeli</div>
+      </div>
+      <div class="b mono" style="padding:8px 11px;font-size:11px;">0x4b19&hellip;7ef0</div>
+    </div>
+
+    <div style="padding:18px;border-bottom:1px solid #c9ccd1;height:90px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+      <div class="h1">Gatekeeper Scanner</div>
+      <div class="bar" style="width:380px;"></div>
+    </div>
+
+    <div style="padding:18px;box-sizing:border-box;display:grid;grid-template-columns:46fr 54fr;gap:18px;">
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="b">
+          <div style="padding:9px 12px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+            <div class="lblk">Camera Viewer</div>
+            <div class="tag">Active Camera</div>
+          </div>
+          <div class="ph" style="height:196px;">Area Pratinjau Kamera</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+          <div class="lbl">Atau Cari Manual</div>
+          <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+        </div>
+
+        <div style="display:flex;gap:9px;">
+          <div class="inp mono" style="flex-grow:1;">Masukkan alamat dompet 0x&hellip;</div>
+          <div class="btn">Cari</div>
+        </div>
+      </div>
+
+      <div class="b" style="display:flex;flex-direction:column;">
+        <div style="padding:10px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+          <div class="lbl">Alamat Pengunjung</div>
+          <div class="mono" style="font-size:11px;font-weight:600;">0x7a3f&hellip;9c21</div>
+        </div>
+
+        <div style="padding:13px;display:flex;flex-direction:column;gap:12px;">
+          <div class="h2" style="border-bottom:1px solid #c9ccd1;padding-bottom:7px;">Nama Acara &mdash; Reguler</div>
+
+          <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:9px;background:#fafbfb;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-size:12px;font-weight:600;">Nama Pemegang</div>
+              <div class="tag">Belum Check-in</div>
+            </div>
+            <div class="inp mono">Scan/Ketik NIK KTP (16 Digit)</div>
+            <div class="btn">Verifikasi KTP</div>
+          </div>
+
+          <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-size:12px;font-weight:600;">Nama Pemegang</div>
+              <div class="tagk">Terverifikasi</div>
+            </div>
+            <div class="btn">Check-in Sah</div>
+            <div class="tx">Setelah NIK cocok, tombol berganti menjadi aksi check-in yang menuliskan status terpakai ke kontrak.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 18px 18px;box-sizing:border-box;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+      <div class="bd" style="padding:13px;display:flex;flex-direction:column;gap:6px;height:118px;box-sizing:border-box;">
+        <div class="lbl">Kondisi 1</div>
+        <div class="h2">Akses Dibatasi</div>
+        <div class="tx">Dompet belum terhubung, sehingga lisensi gatekeeper belum dapat diperiksa.</div>
+      </div>
+      <div class="bd" style="padding:13px;display:flex;flex-direction:column;gap:6px;height:118px;box-sizing:border-box;">
+        <div class="lbl">Kondisi 2</div>
+        <div class="h2">Otorisasi Ditolak</div>
+        <div class="tx">Dompet terhubung tetapi tidak terdaftar sebagai gatekeeper pada kontrak, sehingga pemindaian tidak dapat dijalankan.</div>
+      </div>
+      <div class="bd" style="padding:13px;display:flex;flex-direction:column;gap:6px;height:118px;box-sizing:border-box;">
+        <div class="lbl">Kondisi 3</div>
+        <div class="h2">Tidak Ada Tiket</div>
+        <div class="tx">Alamat yang dipindai atau dicari tidak memiliki tiket untuk acara mana pun.</div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #c9ccd1;padding:18px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="b" style="width:18px;height:18px;"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+      </div>
+      <div class="lbl">Smart Contracts Terverifikasi</div>
+    </div>
+
+    <div class="n" style="left:26px;top:66px;">1</div>
+    <div class="n" style="left:26px;top:196px;">2</div>
+    <div class="n" style="left:26px;top:238px;">3</div>
+    <div class="n" style="left:26px;top:470px;">4</div>
+    <div class="n" style="left:500px;top:196px;">5</div>
+    <div class="n" style="left:500px;top:270px;">6</div>
+    <div class="n" style="left:500px;top:330px;">7</div>
+    <div class="n" style="left:500px;top:430px;">8</div>
+    <div class="n" style="left:26px;top:566px;">9</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Penanda mode panitia.</b> Navigasi berganti menjadi menu khusus gatekeeper, dan alamat dompet petugas ditampilkan sebagai identitas sesi.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Pratinjau kamera.</b> Memindai kode QR pada tiket pengunjung untuk memuat data kepemilikannya.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Penanda kamera aktif.</b> Memberi kepastian kepada petugas bahwa perangkat kamera sedang berjalan.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Pencarian manual.</b> Jalur cadangan bila QR tidak terbaca: petugas memasukkan alamat dompet pengunjung secara langsung.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Alamat pengunjung.</b> Alamat dompet hasil pemindaian atau pencarian, sebagai dasar pembacaan saldo tiket.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Daftar tiket per acara.</b> Seluruh tiket milik alamat tersebut, dikelompokkan menurut acara dan kelas.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Pencocokan NIK.</b> Lapis verifikasi kedua: petugas memasukkan NIK dari kartu identitas fisik pengunjung untuk dicocokkan dengan data yang tersimpan pada tiket.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Eksekusi check-in.</b> Setelah NIK cocok, petugas menandai tiket sebagai terpakai; status ini tercatat permanen di kontrak.</div></div>
+      <div class="legi"><div class="legn">9</div><div class="legx"><b>Kondisi alternatif.</b> Tiga kemungkinan kegagalan: dompet belum terhubung, dompet bukan gatekeeper, dan alamat tanpa tiket.</div></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

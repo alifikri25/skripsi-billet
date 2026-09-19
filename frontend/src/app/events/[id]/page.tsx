@@ -49,8 +49,10 @@ export default function EventDetailPage() {
   const category = firstListing?.eventDetails?.category || "—";
   const creator = firstListing?.eventDetails?.creator || firstListing?.seller;
 
+  // Jangan tutup dialog di sini. Pembelian yang sukses harus tetap menampilkan
+  // step 4 ("Selesai") sampai user menekan tombol SELESAI (yang memanggil onClose).
+  // Menutup dialog di titik ini membuat step konfirmasi tidak pernah terlihat.
   const handleBuySuccess = () => {
-    setSelectedListing(null);
     refetch();
   };
 

@@ -1,0 +1,126 @@
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Dialog Pembelian Tiket</div>
+    <div class="fig-s">Komponen &middot; muncul di atas halaman Detail Event</div>
+  </div>
+  <div class="fig-d">Dialog pembelian tampil menumpuk di atas halaman detail acara. Alur transaksi terdiri dari empat tahap yang ditandai penunjuk langkah, karena pembelian memerlukan dua transaksi berurutan: persetujuan pemakaian token IDRX, lalu pembelian tiket itu sendiri.</div>
+
+  <div class="scr" style="height:668px;background:#f1f2f4;">
+
+    <div class="b" style="position:absolute;left:40px;top:26px;width:520px;background:#fff;">
+
+      <div style="padding:15px 16px;border-bottom:1px solid #c9ccd1;display:flex;align-items:flex-start;justify-content:space-between;">
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div class="h2">Beli Tiket</div>
+          <div class="lbl">Nama Acara &mdash; Kelas Reguler</div>
+        </div>
+        <div class="b" style="width:22px;height:22px;"></div>
+      </div>
+
+      <div style="padding:13px 16px;border-bottom:1px solid #c9ccd1;background:#fafbfb;">
+        <div style="display:flex;align-items:center;gap:0;">
+          <div style="width:20px;height:20px;background:#16181d;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</div>
+          <div style="flex-grow:1;height:1px;background:#c9ccd1;margin:0 7px;"></div>
+          <div class="b" style="width:20px;height:20px;font-size:10px;color:#7b818a;display:flex;align-items:center;justify-content:center;background:#fff;">2</div>
+          <div style="flex-grow:1;height:1px;background:#c9ccd1;margin:0 7px;"></div>
+          <div class="b" style="width:20px;height:20px;font-size:10px;color:#7b818a;display:flex;align-items:center;justify-content:center;background:#fff;">3</div>
+          <div style="flex-grow:1;height:1px;background:#c9ccd1;margin:0 7px;"></div>
+          <div class="b" style="width:20px;height:20px;font-size:10px;color:#7b818a;display:flex;align-items:center;justify-content:center;background:#fff;">4</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:7px;">
+          <div class="lblk">Detail</div><div class="lbl">Approve</div><div class="lbl">Beli</div><div class="lbl">Selesai</div>
+        </div>
+      </div>
+
+      <div style="padding:16px;display:flex;flex-direction:column;gap:15px;">
+
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="lbl">Jumlah Tiket</div>
+          <div style="display:flex;align-items:center;gap:11px;">
+            <div class="b" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:15px;">&minus;</div>
+            <div style="width:38px;text-align:center;font-size:16px;font-weight:700;">2</div>
+            <div class="b" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:15px;">+</div>
+            <div class="lbl" style="margin-left:5px;">Maks. 5 Lembar</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div class="lbl">Registrasi Pemegang Tiket</div>
+          <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:9px;background:#fafbfb;">
+            <div class="lblk">Pemegang Tiket #1</div>
+            <div class="inp">Nama Lengkap</div>
+            <div class="inp mono">NIK (16 Digit)</div>
+            <div class="tx">Validasi langsung: NIK wajib tepat 16 digit angka; jumlah digit yang kurang ditandai sebagai kesalahan sebelum transaksi dikirim.</div>
+          </div>
+          <div class="bd" style="padding:9px 12px;">
+            <div class="lbl">Pemegang Tiket #2 &mdash; blok berulang sebanyak jumlah tiket</div>
+          </div>
+        </div>
+
+        <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:7px;background:#fafbfb;">
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Harga Satuan</div><div class="mono" style="font-size:11px;font-weight:600;">Rp 150.000</div></div>
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Jumlah Tiket</div><div class="mono" style="font-size:11px;font-weight:600;">&times; 2</div></div>
+          <div style="height:1px;background:#c9ccd1;margin:3px 0;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><div class="lblk">Total</div><div class="mono" style="font-size:15px;font-weight:700;">Rp 300.000</div></div>
+        </div>
+
+        <div class="btn" style="padding:12px;">Beli Tiket Sekarang</div>
+      </div>
+    </div>
+
+    <div style="position:absolute;left:600px;top:26px;width:404px;display:flex;flex-direction:column;gap:16px;">
+
+      <div class="b" style="background:#fff;padding:16px;display:flex;flex-direction:column;gap:9px;">
+        <div class="lbl">Kondisi 2 &amp; 3 &mdash; Transaksi Berjalan</div>
+        <div style="display:flex;align-items:center;gap:11px;margin-top:4px;">
+          <div class="b" style="width:28px;height:28px;border-radius:50%;"></div>
+          <div class="h2">Approving Stablecoin&hellip;</div>
+        </div>
+        <div class="tx">Pengguna menandatangani persetujuan pemakaian token IDRX di dompetnya. Setelah disetujui, tahap berganti menjadi &ldquo;Menyelesaikan Penjualan&hellip;&rdquo; saat kontrak marketplace dipanggil.</div>
+        <div class="bd" style="padding:9px 11px;margin-top:3px;">
+          <div class="tx">Dialog tidak dapat ditutup selama transaksi berjalan, untuk mencegah pengguna meninggalkan proses di tengah dua transaksi.</div>
+        </div>
+      </div>
+
+      <div class="b" style="background:#fff;padding:16px;display:flex;flex-direction:column;gap:9px;">
+        <div class="lbl">Kondisi 4 &mdash; Berhasil</div>
+        <div style="display:flex;align-items:center;gap:11px;margin-top:4px;">
+          <div class="b" style="width:28px;height:28px;border-radius:50%;"></div>
+          <div class="h2">Pembelian Selesai</div>
+        </div>
+        <div class="tx">Tiket berpindah kepemilikan ke dompet pengguna. Pengguna diarahkan untuk melihat tiketnya di halaman Tiket Saya.</div>
+        <div class="btn" style="width:fit-content;margin-top:3px;">Selesai</div>
+      </div>
+
+      <div class="bd" style="background:#fff;padding:14px;display:flex;flex-direction:column;gap:7px;">
+        <div class="lbl">Kondisi &mdash; Dompet Belum Terhubung</div>
+        <div class="tx">Bila dompet belum terhubung, seluruh formulir diganti pesan permintaan menghubungkan dompet Web3 terlebih dahulu.</div>
+      </div>
+    </div>
+
+    <div class="n" style="left:52px;top:40px;">1</div>
+    <div class="n" style="left:52px;top:102px;">2</div>
+    <div class="n" style="left:52px;top:180px;">3</div>
+    <div class="n" style="left:52px;top:262px;">4</div>
+    <div class="n" style="left:52px;top:322px;">5</div>
+    <div class="n" style="left:52px;top:452px;">6</div>
+    <div class="n" style="left:52px;top:556px;">7</div>
+    <div class="n" style="left:612px;top:40px;">8</div>
+    <div class="n" style="left:612px;top:222px;">9</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Kepala dialog.</b> Menegaskan acara dan kelas tiket yang sedang dibeli, dengan tombol tutup yang hanya aktif ketika belum ada transaksi berjalan.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Penunjuk langkah.</b> Empat tahap: Detail, Approve, Beli, Selesai. Dua transaksi terpisah diperlukan karena pembayaran memakai token IDRX yang harus disetujui lebih dulu.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Pemilih jumlah tiket.</b> Dibatasi oleh sisa kuota listing; batas maksimum ditampilkan di sebelah pemilih.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Registrasi pemegang tiket.</b> Satu blok isian per lembar tiket, sehingga tiket terikat pada identitas pemegangnya, bukan sekadar pada dompet pembeli.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Validasi NIK.</b> Wajib 16 digit angka dan diperiksa saat pengetikan; tombol pembelian tetap nonaktif sampai seluruh pemegang terisi sah.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Ringkasan biaya.</b> Harga satuan, jumlah lembar, dan total yang akan dipotong dari saldo IDRX pengguna.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Tombol eksekusi.</b> Memicu rangkaian transaksi persetujuan token dan pembelian tiket.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Kondisi transaksi berjalan.</b> Formulir digantikan indikator proses; dialog dikunci agar pengguna tidak keluar di antara dua transaksi.</div></div>
+      <div class="legi"><div class="legn">9</div><div class="legx"><b>Kondisi berhasil.</b> Konfirmasi kepemilikan tiket beserta arahan menuju halaman Tiket Saya.</div></div>
+    </div>
+  </div>
+</div>

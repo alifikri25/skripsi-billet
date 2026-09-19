@@ -1,0 +1,26 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",              "x": 0,    "y": 0,    "w": 1120, "h": 1500, "title": "Beranda" },
+    { "file": "KatalogEvent.dc.html",      "x": 1220, "y": 0,    "w": 1120, "h": 1380, "title": "Katalog Event" },
+    { "file": "DetailEvent.dc.html",       "x": 2440, "y": 0,    "w": 1120, "h": 1470, "title": "Detail Event" },
+
+    { "file": "DialogBeliTiket.dc.html",   "x": 0,    "y": 1640, "w": 1120, "h": 1260, "title": "Dialog Beli Tiket" },
+    { "file": "TiketSaya.dc.html",         "x": 1220, "y": 1640, "w": 1120, "h": 1360, "title": "Tiket Saya" },
+    { "file": "KartuTiket.dc.html",        "x": 2440, "y": 1640, "w": 1120, "h": 1210, "title": "Kartu Tiket & Jual Kembali" },
+
+    { "file": "GatekeeperScanner.dc.html", "x": 0,    "y": 3140, "w": 1120, "h": 1400, "title": "Gatekeeper Scanner" },
+    { "file": "PortalCreator.dc.html",     "x": 1220, "y": 3140, "w": 1120, "h": 1800, "title": "Portal Creator" },
+
+    { "file": "PetaAlur.dc.html",          "x": 0,    "y": 5080, "w": 1400, "h": 1240, "title": "Peta Alur Navigasi" }
+  ],
+  "annotations": [
+    {
+      "id": "cara-pakai",
+      "x": 0,
+      "y": -190,
+      "w": 620,
+      "text": "Setiap artboard di kanvas ini adalah satu gambar siap tempel untuk Bab 3.\n\nGanti label \"Gambar 3.x\" pada tiap artboard dengan nomor urut sesuai dokumenmu, lalu ekspor PNG per artboard lewat menu Export di toolbar. Keterangan bernomor di bawah tiap wireframe sudah berisi penjelasan fungsional yang diminta penguji."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

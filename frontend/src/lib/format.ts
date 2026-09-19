@@ -52,8 +52,18 @@ export function truncateAddress(address: string, chars = 4): string {
 
 /**
  * Get category display name from tokenId.
+ *
+ * tokenId TIDAK menentukan kelas tiket: counter-nya global lintas event, jadi
+ * tokenId 5 bisa saja kelas "Reguler" milik event kedua. Kalau kelas dari
+ * metadata on-chain tersedia (`parsedEvent.ticketClass`), pakai itu; peta statis
+ * di bawah hanya fallback untuk tiga kategori event pertama.
  */
-export function getCategoryName(tokenId: number | bigint): string {
+export function getCategoryName(
+  tokenId: number | bigint,
+  onChainClass?: string
+): string {
+  if (onChainClass && onChainClass.trim().length > 0) return onChainClass.trim();
+
   const id = Number(tokenId);
   switch (id) {
     case 1: return "Reguler";

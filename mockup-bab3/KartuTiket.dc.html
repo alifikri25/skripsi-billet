@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#fff; color:#16181d;
+      font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing:antialiased; }
+    a { color:#16181d; } a:hover { color:#4a4f57; }
+    .fig { padding:34px 38px 38px; }
+    .fig-h { border-bottom:2px solid #16181d; padding-bottom:9px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+    .fig-t { font-size:15px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .fig-s { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .fig-d { font-size:11.5px; color:#4a4f57; line-height:1.55; margin:11px 0 20px; max-width:800px; }
+    .scr { position:relative; border:1px solid #c9ccd1; background:#fff; }
+    .b   { border:1px solid #c9ccd1; }
+    .bd  { border:1px dashed #c9ccd1; }
+    .ph  { border:1px solid #c9ccd1;
+      background:repeating-linear-gradient(45deg,#eceef0 0 7px,#f6f7f8 7px 14px);
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#7b818a; }
+    .fill{ background:#f1f2f4; }
+    .bar { background:#dcdee1; height:7px; }
+    .lbl { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .lblk{ font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#16181d; font-weight:600; }
+    .h1  { font-size:21px; font-weight:700; letter-spacing:-.01em; text-transform:uppercase; }
+    .h2  { font-size:13px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .tx  { font-size:11px; color:#4a4f57; line-height:1.5; }
+    .btn { background:#16181d; color:#fff; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:10px 14px; text-align:center; }
+    .btno{ border:1px solid #16181d; color:#16181d; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:9px 13px; text-align:center; }
+    .tag { border:1px solid #c9ccd1; color:#7b818a; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:3px 7px; }
+    .tagk{ background:#16181d; color:#fff; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:4px 8px; }
+    .inp { border:1px solid #c9ccd1; background:#fafbfb; padding:9px 11px; font-size:11px; color:#9aa0a7; }
+    .mono{ font-family:"Cascadia Mono", Consolas, ui-monospace, monospace; }
+    .n   { position:absolute; width:22px; height:22px; border-radius:50%; background:#16181d; color:#fff;
+      font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 0 3px #fff; z-index:5; }
+    .leg { margin-top:24px; border-top:1px solid #c9ccd1; padding-top:16px; }
+    .legt{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:13px; }
+    .legi{ display:flex; gap:9px; align-items:flex-start; }
+    .legn{ width:19px; height:19px; border-radius:50%; background:#16181d; color:#fff; font-size:10px;
+      font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .legx{ font-size:11px; color:#3a3f46; line-height:1.5; }
+    .legx b { color:#16181d; font-weight:600; }
+  </style>
+</helmet>
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Komponen Kartu Tiket dan Formulir Jual Kembali</div>
+    <div class="fig-s">Komponen &middot; digunakan pada halaman Tiket Saya</div>
+  </div>
+  <div class="fig-d">Kartu tiket adalah satuan terkecil kepemilikan pada aplikasi ini. Selain menampilkan identitas pemegang dan kode QR untuk check-in, kartu ini memuat mekanisme penjualan ulang dengan batas harga tertinggi yang dihitung otomatis oleh kontrak, sehingga penjualan ulang tidak dapat melampaui batas yang ditetapkan penyelenggara.</div>
+
+  <div class="scr" style="height:600px;background:#f1f2f4;">
+
+    <div style="position:absolute;left:24px;top:24px;width:296px;" class="b">
+      <div style="background:#fff;">
+        <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+          <div class="lblk">Reguler</div>
+          <div class="tagk">Aktif</div>
+        </div>
+        <div style="padding:14px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:13px;">
+            <div class="ph" style="width:88px;height:88px;flex-shrink:0;">QR</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div class="lbl">Pemegang</div>
+              <div style="font-size:12px;font-weight:600;">Nama Pemegang</div>
+              <div class="lbl">Nomor Induk Kependudukan</div>
+              <div class="mono" style="font-size:11px;">32&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;07</div>
+            </div>
+          </div>
+          <div class="btno">Jual Kembali Tiket</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b" style="position:absolute;left:24px;top:290px;width:296px;background:#fff;">
+      <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+        <div class="lbl">Reguler</div>
+        <div class="tag">Terpakai</div>
+      </div>
+      <div style="padding:13px;display:flex;flex-direction:column;gap:8px;">
+        <div class="tx">Tiket sudah dipindai dan diverifikasi panitia. Statusnya dicatat permanen di kontrak sehingga tidak dapat dipakai ulang maupun dijual kembali.</div>
+      </div>
+    </div>
+
+    <div class="b" style="position:absolute;left:24px;top:420px;width:296px;background:#fff;">
+      <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+        <div class="lblk">VIP</div>
+        <div class="tag">Dijual (Resale)</div>
+      </div>
+      <div style="padding:13px;display:flex;flex-direction:column;gap:8px;">
+        <div class="tx">Tiket sedang terdaftar di pasar sekunder. Tiket tetap milik pengguna sampai ada pembeli yang menyelesaikan transaksi.</div>
+      </div>
+    </div>
+
+    <div class="b" style="position:absolute;left:360px;top:24px;width:400px;background:#fff;">
+      <div style="padding:12px 14px;border-bottom:1px solid #c9ccd1;">
+        <div class="h2">Jual Kembali Tiket</div>
+      </div>
+      <div style="padding:14px;display:flex;flex-direction:column;gap:13px;">
+
+        <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:7px;background:#fafbfb;">
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Harga Beli Awal</div><div class="mono" style="font-size:11px;font-weight:600;">Rp 150.000</div></div>
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Price Ceiling Bps</div><div class="mono" style="font-size:11px;font-weight:600;">1500 (15%)</div></div>
+          <div style="height:1px;background:#c9ccd1;margin:3px 0;"></div>
+          <div style="display:flex;justify-content:space-between;"><div class="lblk">Harga Jual Maksimum</div><div class="mono" style="font-size:12px;font-weight:700;">Rp 172.500</div></div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="lbl">Harga Jual Baru (IDRX)</div>
+          <div class="inp mono">Contoh: 160000</div>
+        </div>
+
+        <div class="b" style="padding:12px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Platform Fee (0% Promo)</div><div class="mono" style="font-size:11px;">Rp 0</div></div>
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Royalti Kreator (5%)</div><div class="mono" style="font-size:11px;">Rp 8.000</div></div>
+          <div style="height:1px;background:#c9ccd1;margin:3px 0;"></div>
+          <div style="display:flex;justify-content:space-between;"><div class="lblk">Perkiraan Pendapatan Bersih</div><div class="mono" style="font-size:12px;font-weight:700;">Rp 152.000</div></div>
+        </div>
+
+        <div class="btn" style="padding:12px;">Daftarkan Penjualan</div>
+      </div>
+    </div>
+
+    <div class="bd" style="position:absolute;left:800px;top:24px;width:220px;background:#fff;padding:14px;display:flex;flex-direction:column;gap:9px;">
+      <div class="lbl">Catatan Perancangan</div>
+      <div class="tx">Batas harga jual tertinggi tidak dihitung di sisi antarmuka, melainkan dibaca dari kontrak dan ditegakkan kembali oleh kontrak saat transaksi dikirim.</div>
+      <div style="height:1px;background:#c9ccd1;"></div>
+      <div class="tx">Karena itu pengguna tidak dapat menembus batas tersebut dengan memanipulasi tampilan di peramban.</div>
+    </div>
+
+    <div class="n" style="left:36px;top:36px;">1</div>
+    <div class="n" style="left:36px;top:96px;">2</div>
+    <div class="n" style="left:150px;top:96px;">3</div>
+    <div class="n" style="left:36px;top:214px;">4</div>
+    <div class="n" style="left:36px;top:302px;">5</div>
+    <div class="n" style="left:372px;top:36px;">6</div>
+    <div class="n" style="left:372px;top:92px;">7</div>
+    <div class="n" style="left:372px;top:214px;">8</div>
+    <div class="n" style="left:372px;top:288px;">9</div>
+    <div class="n" style="left:372px;top:412px;">10</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Kelas dan status tiket.</b> Menandai kelas tiket beserta status terkini: Aktif, Terpakai, atau Dijual.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Kode QR.</b> Memuat rujukan tiket yang dipindai panitia pada gerbang masuk acara.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Identitas pemegang.</b> Nama dan NIK yang terikat pada tiket sejak pembelian, ditampilkan tersamar demi kerahasiaan data pribadi.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Status terpakai.</b> Setelah check-in, status tercatat permanen di kontrak sehingga tiket tidak dapat dipakai ulang maupun dijual kembali.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Status dijual.</b> Tiket terdaftar di pasar sekunder dan tetap menjadi milik pengguna sampai ada pembeli.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Formulir jual kembali.</b> Terbuka dari tombol pada kartu; hanya tersedia untuk tiket berstatus Aktif.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Batas harga tertinggi.</b> Dihitung dari harga beli awal dikalikan marjin yang ditetapkan penyelenggara, dan ditegakkan oleh kontrak &mdash; bukan oleh antarmuka.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Masukan harga jual.</b> Nilai yang melebihi batas tertinggi akan ditolak sebelum transaksi dikirim.</div></div>
+      <div class="legi"><div class="legn">9</div><div class="legx"><b>Rincian potongan.</b> Biaya platform dan royalti penyelenggara dipotong otomatis, sehingga penyelenggara tetap memperoleh bagian dari setiap penjualan ulang.</div></div>
+      <div class="legi"><div class="legn">10</div><div class="legx"><b>Tombol pendaftaran.</b> Mengirim tiket ke kontrak marketplace agar muncul sebagai listing pasar sekunder di katalog.</div></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

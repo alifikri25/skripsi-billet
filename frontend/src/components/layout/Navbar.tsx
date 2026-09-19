@@ -64,7 +64,7 @@ export function Navbar() {
           >
             <img
               src="/icon.png"
-              alt="Billet Logo"
+              alt="Prasasti Logo"
               className="w-10 h-10 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
             />
 
@@ -73,7 +73,7 @@ export function Navbar() {
                 }`}
             >
               <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-white leading-none">
-                Billet
+                Prasasti
               </span>
               {isCreatorMode && (
                 <span className="font-caption-uppercase text-[9px] text-primary mt-1 tracking-wider">

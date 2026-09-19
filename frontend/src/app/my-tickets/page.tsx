@@ -110,7 +110,9 @@ export default function MyTicketsPage() {
                     {/* Category Header */}
                     <div className="flex items-center gap-3 border-b border-hairline pb-2">
                       <h2 className="font-display-md text-xl uppercase tracking-tight text-white">
-                        {getCategoryName(ticket.tokenId)}
+                        {ticket.parsedEvent?.eventName
+                          ? `${ticket.parsedEvent.eventName} — ${getCategoryName(ticket.tokenId, ticket.parsedEvent?.ticketClass)}`
+                          : getCategoryName(ticket.tokenId)}
                       </h2>
                       <span className="px-2 py-0.5 border border-hairline bg-canvas-elevated font-caption-uppercase text-[9px] tracking-wider text-body">
                         {registeredHolders.length} TIKET
@@ -130,6 +132,7 @@ export default function MyTicketsPage() {
                             index={idx}
                             balance={ticket.balance}
                             unusedIndex={unusedIndex}
+                            categoryName={getCategoryName(ticket.tokenId, ticket.parsedEvent?.ticketClass)}
                           />
                         );
                       })}

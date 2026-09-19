@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#fff; color:#16181d;
+      font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing:antialiased; }
+    a { color:#16181d; } a:hover { color:#4a4f57; }
+    .fig { padding:34px 38px 38px; }
+    .fig-h { border-bottom:2px solid #16181d; padding-bottom:9px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+    .fig-t { font-size:15px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .fig-s { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .fig-d { font-size:11.5px; color:#4a4f57; line-height:1.55; margin:11px 0 20px; max-width:800px; }
+    .scr { position:relative; border:1px solid #c9ccd1; background:#fff; }
+    .b   { border:1px solid #c9ccd1; }
+    .bd  { border:1px dashed #c9ccd1; }
+    .ph  { border:1px solid #c9ccd1;
+      background:repeating-linear-gradient(45deg,#eceef0 0 7px,#f6f7f8 7px 14px);
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#7b818a; }
+    .fill{ background:#f1f2f4; }
+    .bar { background:#dcdee1; height:7px; }
+    .lbl { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .lblk{ font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#16181d; font-weight:600; }
+    .h1  { font-size:21px; font-weight:700; letter-spacing:-.01em; text-transform:uppercase; }
+    .h2  { font-size:13px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .tx  { font-size:11px; color:#4a4f57; line-height:1.5; }
+    .btn { background:#16181d; color:#fff; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:10px 14px; text-align:center; }
+    .btno{ border:1px solid #16181d; color:#16181d; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:9px 13px; text-align:center; }
+    .tag { border:1px solid #c9ccd1; color:#7b818a; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:3px 7px; }
+    .tagk{ background:#16181d; color:#fff; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:4px 8px; }
+    .inp { border:1px solid #c9ccd1; background:#fafbfb; padding:9px 11px; font-size:11px; color:#9aa0a7; }
+    .mono{ font-family:"Cascadia Mono", Consolas, ui-monospace, monospace; }
+    .n   { position:absolute; width:22px; height:22px; border-radius:50%; background:#16181d; color:#fff;
+      font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 0 3px #fff; z-index:5; }
+    .leg { margin-top:24px; border-top:1px solid #c9ccd1; padding-top:16px; }
+    .legt{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:13px; }
+    .legi{ display:flex; gap:9px; align-items:flex-start; }
+    .legn{ width:19px; height:19px; border-radius:50%; background:#16181d; color:#fff; font-size:10px;
+      font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .legx{ font-size:11px; color:#3a3f46; line-height:1.5; }
+    .legx b { color:#16181d; font-weight:600; }
+  </style>
+</helmet>
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Halaman Katalog Event</div>
+    <div class="fig-s">Rute /events</div>
+  </div>
+  <div class="fig-d">Halaman katalog memuat seluruh listing tiket yang aktif dan mengelompokkannya per acara. Penyaring memisahkan tiket yang dijual langsung oleh penyelenggara (penjualan utama) dari tiket yang dijual ulang oleh pemegang sebelumnya (pasar sekunder).</div>
+
+  <div class="scr" style="height:840px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:56px;border-bottom:1px solid #c9ccd1;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:26px;height:26px;"></div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lbl">Beranda</div><div class="lblk">Event</div><div class="lbl">Tiket Saya</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="b" style="display:flex;align-items:stretch;">
+          <div class="tagk">Pembeli</div>
+          <div class="tag" style="border:0;display:flex;align-items:center;">Kreator</div>
+        </div>
+        <div class="btno">Hubungkan Dompet</div>
+      </div>
+    </div>
+
+    <div style="padding:20px 18px;border-bottom:1px solid #c9ccd1;height:200px;box-sizing:border-box;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;">
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="lbl">Prasasti Catalogue</div>
+          <div class="h1">Jelajahi Event</div>
+          <div class="bar" style="width:340px;"></div>
+          <div class="bar" style="width:270px;"></div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div class="b" style="padding:7px 11px;"><span class="lblk">12 Event</span></div>
+          <div class="b" style="padding:7px 11px;"><span class="lbl">37 Listing</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:auto;">
+        <div class="tagk" style="padding:9px 14px;">Semua Tiket</div>
+        <div class="b" style="padding:9px 14px;"><span class="lbl">Penjualan Utama</span></div>
+        <div class="b" style="padding:9px 14px;"><span class="lbl">Pasar Sekunder</span></div>
+      </div>
+    </div>
+
+    <div style="padding:18px;box-sizing:border-box;">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+
+        <div class="b" style="height:268px;display:flex;flex-direction:column;">
+          <div class="ph" style="height:104px;position:relative;">
+            <div class="tag" style="position:absolute;top:9px;left:9px;background:#fff;">Musik</div>
+            <div class="tag" style="position:absolute;bottom:9px;left:9px;background:#fff;">Jakarta</div>
+          </div>
+          <div style="padding:13px;display:flex;flex-direction:column;gap:8px;flex-grow:1;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;">Nama Acara</div>
+            <div class="bar" style="width:70%;"></div>
+            <div class="tag" style="width:fit-content;">3 Kelas Tiket</div>
+            <div style="margin-top:auto;border-top:1px solid #e2e4e7;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;">
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div class="lbl">Mulai dari</div>
+                <div class="mono" style="font-size:13px;font-weight:700;">Rp 150.000</div>
+              </div>
+              <div class="b" style="width:26px;height:26px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="b" style="height:268px;display:flex;flex-direction:column;">
+          <div class="ph" style="height:104px;position:relative;">
+            <div class="tag" style="position:absolute;top:9px;left:9px;background:#fff;">Seminar</div>
+            <div class="tagk" style="position:absolute;top:9px;right:9px;">Resale</div>
+            <div class="tag" style="position:absolute;bottom:9px;left:9px;background:#fff;">Bandung</div>
+          </div>
+          <div style="padding:13px;display:flex;flex-direction:column;gap:8px;flex-grow:1;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;">Nama Acara</div>
+            <div class="bar" style="width:62%;"></div>
+            <div class="tag" style="width:fit-content;">1 Kelas Tiket</div>
+            <div style="margin-top:auto;border-top:1px solid #e2e4e7;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;">
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div class="lbl">Mulai dari</div>
+                <div class="mono" style="font-size:13px;font-weight:700;">Rp 90.000</div>
+              </div>
+              <div class="b" style="width:26px;height:26px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="b" style="height:268px;display:flex;flex-direction:column;">
+          <div class="ph" style="height:104px;position:relative;">
+            <div class="tag" style="position:absolute;top:9px;left:9px;background:#fff;">Olahraga</div>
+            <div class="tag" style="position:absolute;bottom:9px;left:9px;background:#fff;">Surabaya</div>
+          </div>
+          <div style="padding:13px;display:flex;flex-direction:column;gap:8px;flex-grow:1;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;">Nama Acara</div>
+            <div class="bar" style="width:74%;"></div>
+            <div class="tag" style="width:fit-content;">2 Kelas Tiket</div>
+            <div style="margin-top:auto;border-top:1px solid #e2e4e7;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;">
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div class="lbl">Mulai dari</div>
+                <div class="mono" style="font-size:13px;font-weight:700;">Rp 75.000</div>
+              </div>
+              <div class="b" style="width:26px;height:26px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bd" style="margin-top:18px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+        <div class="b" style="width:34px;height:34px;"></div>
+        <div class="h2">Belum Ada Listing</div>
+        <div class="tx" style="max-width:330px;text-align:center;">Kondisi alternatif: ditampilkan ketika penyaring aktif tidak memiliki listing, atau jaringan belum memiliki tiket sama sekali.</div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #c9ccd1;padding:20px 18px;display:grid;grid-template-columns:5fr 3fr 4fr;gap:22px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="b" style="width:18px;height:18px;"></div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+        </div>
+        <div class="bar" style="width:84%;"></div>
+        <div class="bar" style="width:62%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Platform</div>
+        <div class="bar" style="width:56%;"></div>
+        <div class="bar" style="width:70%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Teknologi</div>
+        <div class="bar" style="width:62%;"></div>
+        <div class="bar" style="width:52%;"></div>
+      </div>
+    </div>
+
+    <div class="n" style="left:26px;top:74px;">1</div>
+    <div class="n" style="left:876px;top:74px;">2</div>
+    <div class="n" style="left:26px;top:198px;">3</div>
+    <div class="n" style="left:38px;top:284px;">4</div>
+    <div class="n" style="left:38px;top:404px;">5</div>
+    <div class="n" style="left:26px;top:566px;">6</div>
+    <div class="n" style="left:26px;top:690px;">7</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Judul halaman.</b> Menegaskan konteks halaman sebagai katalog seluruh acara yang tersedia di platform.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Ringkasan jumlah.</b> Menampilkan jumlah acara hasil pengelompokan dan jumlah listing mentah yang terbaca dari kontrak marketplace.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Penyaring sumber tiket.</b> Tiga pilihan: Semua Tiket, Penjualan Utama (langsung dari penyelenggara), dan Pasar Sekunder (dijual ulang oleh pemegang tiket).</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Kartu acara.</b> Satu kartu mewakili satu acara, bukan satu listing; beberapa listing dengan nama acara sama digabung menjadi satu kartu.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Jumlah kelas tiket.</b> Menunjukkan berapa kelas (misalnya Reguler, VIP, VVIP) yang tersedia pada acara tersebut.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Kondisi kosong.</b> Muncul menggantikan grid ketika penyaring aktif tidak memiliki listing atau jaringan belum memiliki tiket.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Footer.</b> Konsisten pada seluruh halaman pembeli.</div></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

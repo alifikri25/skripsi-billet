@@ -28,13 +28,13 @@ export function Footer() {
               {/* Box dihapus, Image digunakan dengan ukuran yang sedikit lebih kecil dari Navbar (32px) */}
               <Image
                 src="/icon.png"
-                alt="Billet Logo"
+                alt="Prasasti Logo"
                 width={32}
                 height={32}
                 className="transition-transform duration-300 group-hover:scale-105"
               />
               <span className="font-display font-bold text-lg tracking-tight text-white uppercase">
-                BILLET
+                PRASASTI
               </span>
             </Link>
             <p className="font-body-sm text-[13px] text-body max-w-xs leading-relaxed">
@@ -94,7 +94,7 @@ export function Footer() {
         {/* ─── Bottom Copyright Bar ───────────────────────────────── */}
         <div className="mt-12 pt-6 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-body-sm text-xs text-muted-soft">
-            © {new Date().getFullYear()} Billet. Dibangun di atas Base
+            © {new Date().getFullYear()} Prasasti. Dibangun di atas Base
           </p>
           <p className="font-body-sm text-xs text-muted-soft">
             Smart Contracts terverifikasi di BaseScan Sepolia

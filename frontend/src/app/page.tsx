@@ -65,7 +65,7 @@ const carouselBanners = [
     id: 3,
     title: "Indonesia Badminton Open 2026",
     tagline: "Kembalinya Kejayaan Bulutangkis",
-    desc: "Pertandingan bulutangkis tingkat dunia memperebutkan Piala Billet dan total hadiah Rp 250 Juta.",
+    desc: "Pertandingan bulutangkis tingkat dunia memperebutkan Piala Prasasti dan total hadiah Rp 250 Juta.",
     date: "22-26 Juli 2026",
     venue: "Istora Senayan, Jakarta",
     category: "Olahraga",
@@ -109,11 +109,11 @@ export default function Home() {
 
       return {
         key,
-        title: parsed?.eventName || details?.title || `Tiket Resmi Billet`,
+        title: parsed?.eventName || details?.title || `Tiket Resmi Prasasti`,
         category: details?.category || "Musik",
         city: details?.city || "Jakarta",
         date: details?.date || "28 Juni 2026",
-        venue: details?.venue || "Billet Arena Base L2",
+        venue: details?.venue || "Prasasti Arena Base L2",
         bannerGradient: "from-red-950 to-neutral-900",
         lowestPrice,
         totalRemaining,
@@ -186,7 +186,7 @@ export default function Home() {
 
               <div className="max-w-5xl mx-auto flex flex-col items-center text-center mt-4">
                 <h1 style={{ fontFamily: 'Roboto, sans-serif' }} className="text-[12vw] sm:text-[100px] md:text-[150px] lg:text-[180px] font-black leading-[0.8] uppercase tracking-[-0.04em] text-transparent bg-clip-text bg-linear-to-b from-white via-white to-white/40 pb-2">
-                  BILLET
+                  PRASASTI
                 </h1>
 
                 <p style={{ fontFamily: 'Roboto, sans-serif' }} className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl font-light tracking-wide mt-6">

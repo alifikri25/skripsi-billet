@@ -45,7 +45,7 @@ export default function EventsPage() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
               <div className="space-y-2">
                 <span className="font-caption-uppercase text-[10px] text-primary tracking-wider">
-                  BILLET CATALOGUE
+                  PRASASTI CATALOGUE
                 </span>
                 <h1 className="font-display-md text-3xl sm:text-4xl uppercase tracking-tight text-white leading-none">
                   JELAJAHI EVENT

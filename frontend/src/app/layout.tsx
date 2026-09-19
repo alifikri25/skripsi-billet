@@ -21,12 +21,12 @@ const dmSans = DM_Sans({
 
 
 export const metadata: Metadata = {
-  title: "Billet",
+  title: "Prasasti",
   description:
     "Platform tiket acara terdesentralisasi di Base L2. Beli, jual, dan kelola tiket dengan aman — tanpa calo, harga adil, check-in instan.",
   keywords: ["tiket", "blockchain", "NFT", "Base", "decentralized", "IDRX", "event"],
   openGraph: {
-    title: "Billet",
+    title: "Prasasti",
     description: "Beli tiket acara di blockchain tanpa calo. Harga adil, check-in instan.",
     type: "website",
   },

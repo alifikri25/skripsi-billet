@@ -15,10 +15,12 @@ interface TicketCardProps {
   index: number;
   balance?: bigint;
   unusedIndex?: number;
+  /** Kelas tiket dari metadata on-chain; menimpa peta statis berbasis tokenId. */
+  categoryName?: string;
 }
 
-export function TicketCard({ tokenId, holder, index, balance, unusedIndex }: TicketCardProps) {
-  const categoryName = getCategoryName(tokenId);
+export function TicketCard({ tokenId, holder, index, balance, unusedIndex, categoryName: categoryNameProp }: TicketCardProps) {
+  const categoryName = getCategoryName(tokenId, categoryNameProp);
   const isUsed = holder.used;
   const { address } = useAccount();
   const { writeContractAsync } = useWriteContract();
@@ -127,7 +129,7 @@ export function TicketCard({ tokenId, holder, index, balance, unusedIndex }: Tic
       });
 
       toast.success("Tiket Berhasil Terdaftar di Pasar Sekunder!", {
-        description: "Tiket Anda kini aktif dipromosikan di Beranda Billet!",
+        description: "Tiket Anda kini aktif dipromosikan di Beranda Prasasti!",
         duration: 5000
       });
       setIsResellModalOpen(false);

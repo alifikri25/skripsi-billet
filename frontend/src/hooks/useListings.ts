@@ -1,7 +1,17 @@
+import { useCallback, useMemo } from "react";
 import { useReadContracts } from "wagmi";
-import { MARKETPLACE_ABI, MARKETPLACE_ADDRESS, NFT_ABI, NFT_ADDRESS } from "@/config/contracts";
+import {
+  LISTING_SCAN_CHECKPOINTS,
+  LISTING_SCAN_STRIDE,
+  MARKETPLACE_ABI,
+  MARKETPLACE_ADDRESS,
+  NFT_ABI,
+  NFT_ADDRESS,
+} from "@/config/contracts";
 import type { Abi } from "viem";
 import { baseSepolia } from "viem/chains";
+
+const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
 export interface Listing {
   seller: `0x${string}`;
@@ -58,25 +68,77 @@ export interface ListingWithId extends Listing {
 
 /**
  * Fetches all listings from the TicketMarketplace smart contract.
- * Iterates through listing IDs 0..maxId and filters for active ones,
- * enriching each active listing with dynamic on-chain metadata.
+ * Filters for active ones, enriching each with dynamic on-chain metadata.
+ *
+ * Rentang pemindaian ditentukan otomatis, bukan konstanta. Setiap resale
+ * membuat listingId baru selamanya, jadi batas tetap (dulu 20) akan membuat
+ * listing baru hilang diam-diam begitu ambangnya terlampaui.
  */
-export function useListings(maxId = 20) {
-  // Create contract calls for IDs 0 through maxId
-  const contracts = Array.from({ length: maxId }, (_, i) => ({
-    address: MARKETPLACE_ADDRESS,
-    abi: MARKETPLACE_ABI as Abi,
-    functionName: "getListing" as const,
-    args: [BigInt(i)] as const,
-    chainId: baseSepolia.id,
-  }));
+export function useListings() {
+  // ── Tahap 1: probe jarang untuk menemukan sampai mana listing terisi ──────
+  // listingId berurutan dari 0 tanpa lubang, jadi kalau checkpoint k terisi,
+  // semua id di bawah k * STRIDE pasti terisi juga.
+  const checkpointContracts = useMemo(
+    () =>
+      Array.from({ length: LISTING_SCAN_CHECKPOINTS }, (_, i) => ({
+        address: MARKETPLACE_ADDRESS,
+        abi: MARKETPLACE_ABI as Abi,
+        functionName: "getListing" as const,
+        args: [BigInt(i * LISTING_SCAN_STRIDE)] as const,
+        chainId: baseSepolia.id,
+      })),
+    []
+  );
 
-  const { data, isLoading, error, refetch } = useReadContracts({
+  const { data: checkpointData, refetch: refetchCheckpoints } = useReadContracts({
+    contracts: checkpointContracts,
+    query: {
+      refetchInterval: 30_000,
+    },
+  });
+
+  // Checkpoint terisi paling tinggi menentukan batas atas pembacaan penuh.
+  const scanCount = useMemo(() => {
+    let highest = 0;
+    if (checkpointData) {
+      for (let i = 0; i < checkpointData.length; i++) {
+        const res = checkpointData[i];
+        if (res?.status === "success" && res.result) {
+          const seller = (res.result as unknown as Listing).seller;
+          if (seller && seller !== ZERO_ADDRESS) highest = i;
+        }
+      }
+    }
+    // Baca satu stride penuh melewati checkpoint terakhir yang terisi, karena
+    // ujung sebenarnya ada di antara checkpoint itu dan checkpoint berikutnya.
+    return (highest + 1) * LISTING_SCAN_STRIDE;
+  }, [checkpointData]);
+
+  // ── Tahap 2: baca rentang penuh 0..scanCount-1 ───────────────────────────
+  const contracts = useMemo(
+    () =>
+      Array.from({ length: scanCount }, (_, i) => ({
+        address: MARKETPLACE_ADDRESS,
+        abi: MARKETPLACE_ABI as Abi,
+        functionName: "getListing" as const,
+        args: [BigInt(i)] as const,
+        chainId: baseSepolia.id,
+      })),
+    [scanCount]
+  );
+
+  const { data, isLoading, error, refetch: refetchListings } = useReadContracts({
     contracts,
     query: {
       refetchInterval: 15_000, // refresh every 15s
     },
   });
+
+  // Pembelian/resale bisa menggeser ujung rentang, jadi segarkan keduanya.
+  const refetch = useCallback(() => {
+    refetchCheckpoints();
+    return refetchListings();
+  }, [refetchCheckpoints, refetchListings]);
 
   // Parse results and filter active listings
   const listings: ListingWithId[] = [];
@@ -88,7 +150,7 @@ export function useListings(maxId = 20) {
         const listing = result.result as unknown as Listing;
         // Skip empty/zero listings (seller is zero address)
         if (
-          listing.seller !== "0x0000000000000000000000000000000000000000" &&
+          listing.seller !== ZERO_ADDRESS &&
           listing.amount > BigInt(0)
         ) {
           listings.push({ ...listing, listingId: i });

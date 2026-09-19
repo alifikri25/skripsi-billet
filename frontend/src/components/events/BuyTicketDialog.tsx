@@ -230,7 +230,7 @@ export function BuyTicketDialog({ listing, onClose, onSuccess }: BuyTicketDialog
                 <p className="font-body-sm text-[13px] text-body max-w-xs mx-auto">
                   {txState === "approving"
                     ? "Silakan tanda tangani transaksi persetujuan token IDRX di dompet Anda."
-                    : "Menghubungi smart contract penjualan tiket Billet L2..."}
+                    : "Menghubungi smart contract penjualan tiket Prasasti L2..."}
                 </p>
               </div>
             </div>

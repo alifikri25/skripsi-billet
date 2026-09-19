@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#fff; color:#16181d;
+      font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing:antialiased; }
+    a { color:#16181d; } a:hover { color:#4a4f57; }
+    .fig { padding:34px 38px 38px; }
+    .fig-h { border-bottom:2px solid #16181d; padding-bottom:9px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+    .fig-t { font-size:15px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .fig-s { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .fig-d { font-size:11.5px; color:#4a4f57; line-height:1.55; margin:11px 0 20px; max-width:800px; }
+    .scr { position:relative; border:1px solid #c9ccd1; background:#fff; }
+    .b   { border:1px solid #c9ccd1; }
+    .bd  { border:1px dashed #c9ccd1; }
+    .ph  { border:1px solid #c9ccd1;
+      background:repeating-linear-gradient(45deg,#eceef0 0 7px,#f6f7f8 7px 14px);
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#7b818a; }
+    .fill{ background:#f1f2f4; }
+    .bar { background:#dcdee1; height:7px; }
+    .lbl { font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#7b818a; }
+    .lblk{ font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:#16181d; font-weight:600; }
+    .h1  { font-size:21px; font-weight:700; letter-spacing:-.01em; text-transform:uppercase; }
+    .h2  { font-size:13px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .tx  { font-size:11px; color:#4a4f57; line-height:1.5; }
+    .btn { background:#16181d; color:#fff; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:10px 14px; text-align:center; }
+    .btno{ border:1px solid #16181d; color:#16181d; font-size:10px; font-weight:600; letter-spacing:.12em;
+      text-transform:uppercase; padding:9px 13px; text-align:center; }
+    .tag { border:1px solid #c9ccd1; color:#7b818a; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:3px 7px; }
+    .tagk{ background:#16181d; color:#fff; font-size:9px; letter-spacing:.1em;
+      text-transform:uppercase; padding:4px 8px; }
+    .inp { border:1px solid #c9ccd1; background:#fafbfb; padding:9px 11px; font-size:11px; color:#9aa0a7; }
+    .mono{ font-family:"Cascadia Mono", Consolas, ui-monospace, monospace; }
+    .n   { position:absolute; width:22px; height:22px; border-radius:50%; background:#16181d; color:#fff;
+      font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 0 3px #fff; z-index:5; }
+    .leg { margin-top:24px; border-top:1px solid #c9ccd1; padding-top:16px; }
+    .legt{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:13px; }
+    .legi{ display:flex; gap:9px; align-items:flex-start; }
+    .legn{ width:19px; height:19px; border-radius:50%; background:#16181d; color:#fff; font-size:10px;
+      font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .legx{ font-size:11px; color:#3a3f46; line-height:1.5; }
+    .legx b { color:#16181d; font-weight:600; }
+  </style>
+</helmet>
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Peta Alur Navigasi dan Peran Pengguna</div>
+    <div class="fig-s">Struktur menyeluruh aplikasi</div>
+  </div>
+  <div class="fig-d">Peta ini menunjukkan hubungan antarhalaman menurut tiga peran pengguna, serta kontrak pintar yang dipanggil pada tiap tahap. Perhatikan alur balik pada peran pembeli: tiket yang dijual kembali masuk kembali ke katalog sebagai listing pasar sekunder, sehingga peredaran tiket tetap berada di dalam sistem.</div>
+
+  <div class="scr" style="height:770px;padding:22px;box-sizing:border-box;">
+
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="tagk">Peran 1 &mdash; Pembeli</div>
+        <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;"><div class="lblk">Beranda</div><div class="lbl mono" style="margin-top:3px;">/</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;"><div class="lblk">Katalog Event</div><div class="lbl mono" style="margin-top:3px;">/events</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;"><div class="lblk">Detail Event</div><div class="lbl mono" style="margin-top:3px;">/events/[id]</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;background:#f1f2f4;"><div class="lblk">Dialog Beli Tiket</div><div class="lbl" style="margin-top:3px;">Approve &rarr; Beli</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;"><div class="lblk">Tiket Saya</div><div class="lbl mono" style="margin-top:3px;">/my-tickets</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;background:#f1f2f4;"><div class="lblk">Jual Kembali</div><div class="lbl" style="margin-top:3px;">Batas harga</div></div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:9px;padding-left:2px;">
+        <svg width="14" height="34" viewBox="0 0 14 34" style="flex-shrink:0;"><path d="M7 33V6M3 10l4-4 4 4" stroke="#7b818a" stroke-width="1.2" fill="none"/></svg>
+        <div class="bd" style="flex-grow:1;padding:8px 11px;display:flex;align-items:center;gap:10px;">
+          <div class="lbl">Alur Balik</div>
+          <div class="tx">Tiket yang didaftarkan untuk dijual kembali muncul lagi di Katalog Event sebagai listing pasar sekunder, dan dapat dibeli pengguna lain melalui alur yang sama.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;margin-top:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="tagk">Peran 2 &mdash; Panitia / Gatekeeper</div>
+        <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Gatekeeper Scanner</div><div class="lbl mono" style="margin-top:3px;">/gatekeeper</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Verifikasi Lisensi</div><div class="lbl" style="margin-top:3px;">Cek peran di kontrak</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Pindai QR / Cari Alamat</div><div class="lbl" style="margin-top:3px;">Muat tiket pengunjung</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Cocokkan NIK</div><div class="lbl" style="margin-top:3px;">Lapis verifikasi kedua</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="flex-grow:1;padding:12px 11px;text-align:center;background:#f1f2f4;"><div class="lblk">Check-in Sah</div><div class="lbl" style="margin-top:3px;">Tandai tiket terpakai</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;margin-top:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="tagk">Peran 3 &mdash; Kreator / Penyelenggara</div>
+        <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Portal Creator</div><div class="lbl mono" style="margin-top:3px;">/creator</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Kalkulator Simulasi</div><div class="lbl" style="margin-top:3px;">Tetapkan harga</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;"><div class="lblk">Formulir Penerbitan</div><div class="lbl" style="margin-top:3px;">Acara &amp; kelas tiket</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="b" style="width:210px;padding:12px 11px;text-align:center;background:#f1f2f4;"><div class="lblk">Luncurkan On-Chain</div><div class="lbl" style="margin-top:3px;">Terbitkan token tiket</div></div>
+        <svg width="22" height="10" viewBox="0 0 22 10" style="flex-shrink:0;"><path d="M0 5h19M15 1l4 4-4 4" stroke="#16181d" stroke-width="1.2" fill="none"/></svg>
+        <div class="bd" style="flex-grow:1;padding:12px 11px;text-align:center;"><div class="lbl">Muncul di Katalog Event</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;border-top:2px solid #16181d;padding-top:14px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px;">
+        <div class="lblk">Lapisan Kontrak Pintar &mdash; Jaringan Base</div>
+        <div style="flex-grow:1;height:1px;background:#c9ccd1;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+        <div class="b" style="padding:13px;display:flex;flex-direction:column;gap:6px;">
+          <div class="lblk mono">TicketNFT</div>
+          <div class="tx">Menerbitkan dan menyimpan kepemilikan tiket, data pemegang beserta NIK tersandi, dan status terpakai setelah check-in.</div>
+        </div>
+        <div class="b" style="padding:13px;display:flex;flex-direction:column;gap:6px;">
+          <div class="lblk mono">TicketMarketplace</div>
+          <div class="tx">Mengelola listing penjualan utama dan penjualan ulang, menegakkan batas harga tertinggi, serta membagikan royalti kepada penyelenggara.</div>
+        </div>
+        <div class="b" style="padding:13px;display:flex;flex-direction:column;gap:6px;">
+          <div class="lblk mono">Token IDRX</div>
+          <div class="tx">Alat pembayaran berbasis stablecoin rupiah; memerlukan persetujuan pemakaian sebelum tiket dapat dibeli.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legx"><b>Tiga peran, satu aplikasi.</b> Pembeli, panitia, dan penyelenggara memakai aplikasi yang sama namun melihat navigasi berbeda. Pembatasan peran panitia dan penyelenggara diperiksa pada kontrak, bukan hanya disembunyikan di antarmuka.</div>
+      <div class="legx"><b>Kotak berlatar abu.</b> Menandai tahap yang mengirim transaksi ke rantai, yaitu pembelian tiket, pendaftaran penjualan ulang, check-in, dan penerbitan tiket baru.</div>
+      <div class="legx"><b>Alur balik pembeli.</b> Penjualan ulang tidak keluar dari sistem; tiket kembali masuk ke katalog sebagai listing pasar sekunder dengan batas harga yang tetap ditegakkan kontrak.</div>
+      <div class="legx"><b>Lapisan kontrak.</b> Seluruh halaman membaca dan menulis data melalui tiga kontrak ini, sehingga aplikasi tidak memerlukan basis data terpusat untuk menyimpan kepemilikan tiket.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Portal Kreator</div>
+    <div class="fig-s">Rute /creator</div>
+  </div>
+  <div class="fig-d">Portal bagi penyelenggara acara untuk menerbitkan tiket. Halaman ini memuat tiga bagian berurutan: pengenalan beserta pemantauan penjualan, kalkulator proyeksi pendapatan sebagai alat bantu penetapan harga, dan formulir penerbitan tiket yang menuliskan acara beserta kelas tiketnya ke rantai.</div>
+
+  <div class="scr" style="height:1180px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:56px;border-bottom:1px solid #c9ccd1;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:26px;height:26px;"></div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+          <div class="lbl" style="font-size:8px;">Creator System</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lblk">Portal Creator</div><div class="lbl">Halaman Pembeli</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="b" style="display:flex;align-items:stretch;">
+          <div class="tag" style="border:0;display:flex;align-items:center;">Pembeli</div>
+          <div class="tagk">Kreator</div>
+        </div>
+        <div class="b mono" style="padding:8px 11px;font-size:11px;">0x2c88&hellip;41ad</div>
+      </div>
+    </div>
+
+    <div style="padding:20px 18px;border-bottom:1px solid #c9ccd1;height:196px;box-sizing:border-box;display:grid;grid-template-columns:54fr 46fr;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:24px;font-weight:600;text-transform:uppercase;line-height:1.15;">Luncurkan Tiket On-Chain dengan Batas Resale Otomatis.</div>
+        <div class="bar" style="width:82%;"></div>
+        <div style="display:flex;gap:24px;margin-top:auto;">
+          <div style="display:flex;flex-direction:column;gap:3px;"><div style="font-size:15px;font-weight:700;">30.000+</div><div class="lbl">Tiket Terjual</div></div>
+          <div style="display:flex;flex-direction:column;gap:3px;"><div style="font-size:15px;font-weight:700;">Rp 0</div><div class="lbl">Commission Fee</div></div>
+          <div style="display:flex;flex-direction:column;gap:3px;"><div style="font-size:15px;font-weight:700;">Rp 5 M+</div><div class="lbl">Volume Resale</div></div>
+        </div>
+      </div>
+
+      <div class="b" style="padding:13px;display:flex;flex-direction:column;gap:10px;">
+        <div class="lblk">Prasasti Monitor</div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+          <div class="b" style="padding:9px;"><div class="lbl">Tiket Terjual</div><div class="mono" style="font-size:13px;font-weight:700;margin-top:3px;">1.284</div></div>
+          <div class="b" style="padding:9px;"><div class="lbl">Royalti Resale</div><div class="mono" style="font-size:13px;font-weight:700;margin-top:3px;">Rp 4,1 Jt</div></div>
+        </div>
+        <div class="lbl">Aktivitas Terbaru</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><div class="tx">Primary Buy &mdash; 2 Tiket VIP</div><div class="mono" style="font-size:11px;">Rp 700.000</div></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;"><div class="tx">Resale Royalty &mdash; 5%</div><div class="mono" style="font-size:11px;">+ Rp 55.000</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:18px;box-sizing:border-box;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;">
+
+      <div class="b" style="padding:14px;display:flex;flex-direction:column;gap:13px;">
+        <div class="h2" style="border-bottom:1px solid #c9ccd1;padding-bottom:8px;">Kalkulator Simulasi</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="lbl">Jenis Event</div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+            <div class="tagk" style="padding:8px;text-align:center;">Konser Musik</div>
+            <div class="b" style="padding:8px;text-align:center;"><span class="lbl">Seminar &amp; Kelas</span></div>
+            <div class="b" style="padding:8px;text-align:center;"><span class="lbl">Pertandingan Olahraga</span></div>
+            <div class="b" style="padding:8px;text-align:center;"><span class="lbl">Pertunjukan Seni</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Harga Per Tiket</div><div class="mono" style="font-size:11px;font-weight:600;">Rp 250.000</div></div>
+          <div style="height:5px;background:#dcdee1;position:relative;"><div style="position:absolute;left:0;top:0;height:5px;width:34%;background:#16181d;"></div></div>
+          <div style="display:flex;justify-content:space-between;"><div class="lbl">Rp 30rb</div><div class="lbl">Rp 2jt</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;"><div class="tx">Jumlah Tiket</div><div class="mono" style="font-size:11px;font-weight:600;">500</div></div>
+          <div style="height:5px;background:#dcdee1;position:relative;"><div style="position:absolute;left:0;top:0;height:5px;width:52%;background:#16181d;"></div></div>
+        </div>
+      </div>
+
+      <div class="b" style="padding:14px;display:flex;flex-direction:column;gap:12px;">
+        <div class="h2" style="border-bottom:1px solid #c9ccd1;padding-bottom:8px;">Proyeksi Pendapatan</div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+          <div class="b" style="padding:9px;"><div class="lbl">Penjualan Utama</div><div class="mono" style="font-size:12px;font-weight:700;margin-top:3px;">Rp 125 Jt</div></div>
+          <div class="b" style="padding:9px;"><div class="lbl">Simulasi Royalti</div><div class="mono" style="font-size:12px;font-weight:700;margin-top:3px;">Rp 6,2 Jt</div></div>
+          <div class="b" style="padding:9px;"><div class="lbl">Potongan Komisi</div><div class="mono" style="font-size:12px;font-weight:700;margin-top:3px;">Rp 0</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="lbl">Proporsi Laba</div>
+          <div style="display:flex;height:16px;">
+            <div style="width:82%;background:#16181d;"></div>
+            <div style="width:14%;background:#7b818a;"></div>
+            <div style="width:4%;background:#dcdee1;"></div>
+          </div>
+        </div>
+        <div class="b" style="padding:12px;margin-top:auto;background:#fafbfb;">
+          <div class="lbl">Estimasi Total Laba Bersih</div>
+          <div class="mono" style="font-size:20px;font-weight:700;margin-top:4px;">Rp 131.200.000</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 18px 18px;box-sizing:border-box;">
+      <div class="b" style="padding:16px;display:flex;flex-direction:column;gap:14px;">
+        <div class="h2" style="border-bottom:1px solid #c9ccd1;padding-bottom:8px;">Formulir Penerbitan Tiket</div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;">
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Nama Event</div><div class="inp">Contoh: Retrospektif Tour</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Kategori NFT</div><div class="inp" style="display:flex;align-items:center;justify-content:space-between;"><span>Musik</span><svg width="10" height="7" viewBox="0 0 10 7" style="flex-shrink:0;"><path d="M1 1.5 5 5.5 9 1.5" stroke="#7b818a" stroke-width="1.2" fill="none"/></svg></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Kota</div><div class="inp" style="display:flex;align-items:center;justify-content:space-between;"><span>Jakarta</span><svg width="10" height="7" viewBox="0 0 10 7" style="flex-shrink:0;"><path d="M1 1.5 5 5.5 9 1.5" stroke="#7b818a" stroke-width="1.2" fill="none"/></svg></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Nama Gedung / Venue</div><div class="inp">Contoh: Stadion Utama GBK</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Tanggal Acara</div><div class="inp">Contoh: 12 Juli 2026</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Price Ceiling Markup</div><div class="inp mono">15%</div></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;">
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Deskripsi Event</div><div class="inp" style="height:58px;">Agenda dan informasi penting bagi pengunjung&hellip;</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px;"><div class="lbl">Syarat &amp; Ketentuan</div><div class="inp" style="height:58px;">Satu baris untuk satu butir ketentuan&hellip;</div></div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div class="lbl">Kategori Tiket</div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;">
+            <div class="b" style="padding:11px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:13px;height:13px;background:#16181d;"></div><div class="lblk">Reguler</div></div>
+              <div style="display:flex;flex-direction:column;gap:4px;"><div class="lbl">Harga (IDRX)</div><div class="inp mono">100000</div></div>
+              <div style="display:flex;flex-direction:column;gap:4px;"><div class="lbl">Jumlah Tiket</div><div class="inp mono">500</div></div>
+            </div>
+            <div class="b" style="padding:11px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:13px;height:13px;background:#16181d;"></div><div class="lblk">VIP</div></div>
+              <div style="display:flex;flex-direction:column;gap:4px;"><div class="lbl">Harga (IDRX)</div><div class="inp mono">350000</div></div>
+              <div style="display:flex;flex-direction:column;gap:4px;"><div class="lbl">Jumlah Tiket</div><div class="inp mono">120</div></div>
+            </div>
+            <div class="b" style="padding:11px;display:flex;flex-direction:column;gap:8px;background:#fafbfb;">
+              <div style="display:flex;align-items:center;gap:8px;"><div class="b" style="width:13px;height:13px;"></div><div class="lbl">VVIP</div></div>
+              <div class="tx">Kategori nonaktif: isian harga dan kuota disembunyikan sampai kategori dicentang.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn" style="padding:13px;">Luncurkan Tiket On-Chain</div>
+      </div>
+    </div>
+
+    <div style="padding:0 18px 18px;box-sizing:border-box;">
+      <div class="bd" style="padding:13px;display:flex;flex-direction:column;gap:6px;">
+        <div class="lbl">Kondisi Alternatif</div>
+        <div class="tx">Bila dompet belum terhubung, seluruh formulir diganti dengan permintaan menghubungkan dompet untuk memverifikasi lisensi penerbitan tiket.</div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #c9ccd1;padding:18px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="b" style="width:18px;height:18px;"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+      </div>
+      <div class="lbl">Smart Contracts Terverifikasi</div>
+    </div>
+
+    <div class="n" style="left:26px;top:66px;">1</div>
+    <div class="n" style="left:26px;top:150px;">2</div>
+    <div class="n" style="left:580px;top:80px;">3</div>
+    <div class="n" style="left:26px;top:280px;">4</div>
+    <div class="n" style="left:540px;top:280px;">5</div>
+    <div class="n" style="left:540px;top:452px;">6</div>
+    <div class="n" style="left:38px;top:588px;">7</div>
+    <div class="n" style="left:678px;top:632px;">8</div>
+    <div class="n" style="left:38px;top:800px;">9</div>
+    <div class="n" style="left:38px;top:986px;">10</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Penanda mode kreator.</b> Navigasi berganti menjadi menu penyelenggara, dan pengalih peran menunjukkan posisi pengguna saat ini.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Pengenalan portal.</b> Menjelaskan nilai utama yang ditawarkan kepada penyelenggara, yaitu penerbitan tiket dengan batas harga jual ulang yang ditegakkan otomatis.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Panel pemantauan.</b> Ringkasan tiket terjual, royalti dari penjualan ulang, dan aktivitas transaksi terbaru.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Kalkulator simulasi.</b> Alat bantu penetapan harga; jenis acara memuat nilai bawaan royalti dan marjin jual ulang yang berbeda-beda.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Proyeksi pendapatan.</b> Menghitung pendapatan penjualan utama, simulasi royalti, dan potongan komisi berdasarkan masukan kalkulator.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Estimasi laba bersih.</b> Hasil akhir simulasi; bersifat perkiraan dan tidak mengikat nilai yang nanti tercatat di rantai.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Data pokok acara.</b> Nama, kategori, kota, venue, dan tanggal yang akan tersimpan sebagai metadata tiket.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Marjin batas jual ulang.</b> Menentukan seberapa tinggi tiket boleh dijual kembali; nilai inilah yang kemudian ditegakkan kontrak pada setiap penjualan ulang.</div></div>
+      <div class="legi"><div class="legn">9</div><div class="legx"><b>Kelas tiket.</b> Setiap kelas yang diaktifkan menghasilkan satu jenis token dengan harga dan kuota tersendiri; kelas yang tidak dicentang tidak diterbitkan.</div></div>
+      <div class="legi"><div class="legn">10</div><div class="legx"><b>Eksekusi penerbitan.</b> Menuliskan acara beserta seluruh kelas tiketnya ke rantai, sehingga langsung muncul di katalog pembeli.</div></div>
+    </div>
+  </div>
+</div>

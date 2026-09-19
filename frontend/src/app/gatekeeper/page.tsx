@@ -5,7 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ConnectKitButton } from "connectkit";
 import { useAccount, useReadContract, useReadContracts, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { NFT_ABI, NFT_ADDRESS, SUPPORTED_TOKEN_IDS } from "@/config/contracts";
+import { NFT_ABI, NFT_ADDRESS } from "@/config/contracts";
+import { useTokenCatalog } from "@/hooks/useTokenCatalog";
 import type { Abi } from "viem";
 import { baseSepolia } from "viem/chains";
 import { keccak256, toBytes } from "viem";
@@ -13,6 +14,7 @@ import { Shield, ScanLine, Loader2, ArrowLeft, Search, User } from "lucide-react
 import { Scanner } from "@/components/gatekeeper/Scanner";
 import { getCategoryName } from "@/lib/format";
 import type { TicketHolder } from "@/hooks/useMyTickets";
+import type { ParsedEventInfo } from "@/hooks/useListings";
 
 export default function GatekeeperPage() {
   const { address, isConnected } = useAccount();
@@ -42,28 +44,14 @@ export default function GatekeeperPage() {
     },
   });
 
-  // 1b. Check if the user is the creator of any event
-  const { data: eventDetailsList } = useReadContracts({
-    contracts: SUPPORTED_TOKEN_IDS.map((id) => ({
-      address: NFT_ADDRESS,
-      abi: NFT_ABI as Abi,
-      functionName: "eventDetails",
-      args: [BigInt(id)],
-      chainId: baseSepolia.id,
-    })),
-    query: {
-      enabled: isConnected && !!address,
-    }
-  });
+  // 1b. Check if the user is the creator of any event.
+  // Katalog memindai SEMUA kategori on-chain, bukan hanya tiga tokenId pertama,
+  // supaya creator event kedua dan seterusnya tetap dikenali sebagai gatekeeper.
+  const { tokenIds, categories } = useTokenCatalog();
 
-  const isCreator = !!address && !!eventDetailsList && eventDetailsList.some((res) => {
-    if (res.status === "success" && res.result) {
-      const details = res.result as Record<string, unknown>;
-      const creatorAddr = details.creator || (Array.isArray(details) ? details[5] : null);
-      return typeof creatorAddr === "string" && creatorAddr.toLowerCase() === address.toLowerCase();
-    }
-    return false;
-  });
+  const isCreator = !!address && categories.some(
+    (c) => c.eventDetails?.creator?.toLowerCase() === address.toLowerCase()
+  );
 
   const checkingRole = checkingExplicitRole || checkingOwnerRole;
   const isOwner = !!address && !!ownerAddress && address.toLowerCase() === (ownerAddress as string).toLowerCase();
@@ -71,7 +59,7 @@ export default function GatekeeperPage() {
 
   // 2. Fetch User Tickets
   const contracts = scannedAddress
-    ? SUPPORTED_TOKEN_IDS.flatMap((tokenId) => [
+    ? tokenIds.flatMap((tokenId) => [
       {
         address: NFT_ADDRESS,
         abi: NFT_ABI as Abi,
@@ -92,14 +80,14 @@ export default function GatekeeperPage() {
   const { data: userTicketsData, isLoading: fetchingTickets, refetch: refetchTickets } = useReadContracts({
     contracts,
     query: {
-      enabled: !!scannedAddress,
+      enabled: !!scannedAddress && tokenIds.length > 0,
     },
   });
 
   // 3. Process Ticket Data
-  const tickets: { tokenId: number; holders: TicketHolder[] }[] = [];
+  const tickets: { tokenId: number; holders: TicketHolder[]; parsedEvent?: ParsedEventInfo }[] = [];
   if (userTicketsData) {
-    for (let i = 0; i < SUPPORTED_TOKEN_IDS.length; i++) {
+    for (let i = 0; i < tokenIds.length; i++) {
       const balanceResult = userTicketsData[i * 2];
       const holdersResult = userTicketsData[i * 2 + 1];
 
@@ -107,7 +95,7 @@ export default function GatekeeperPage() {
       const holders = holdersResult?.status === "success" ? (holdersResult.result as unknown as TicketHolder[]) : [];
 
       if (balance > BigInt(0) || holders.length > 0) {
-        tickets.push({ tokenId: SUPPORTED_TOKEN_IDS[i], holders });
+        tickets.push({ tokenId: tokenIds[i], holders, parsedEvent: categories[i]?.parsedEvent });
       }
     }
   }
@@ -186,7 +174,7 @@ export default function GatekeeperPage() {
               <div className="space-y-2">
                 <h3 className="font-display-md text-xl uppercase tracking-tight text-white">OTORISASI DITOLAK</h3>
                 <p className="font-body-sm text-[13px] text-body max-w-sm mx-auto">
-                  Dompet Anda ({address?.slice(0, 6)}...{address?.slice(-4)}) tidak terdaftar sebagai Gatekeeper di smart contract Billet L2.
+                  Dompet Anda ({address?.slice(0, 6)}...{address?.slice(-4)}) tidak terdaftar sebagai Gatekeeper di smart contract Prasasti L2.
                 </p>
               </div>
               <div className="flex justify-center">
@@ -274,7 +262,7 @@ export default function GatekeeperPage() {
                       return (
                         <div key={ticket.tokenId} className="space-y-4">
                           <h3 className="font-display-md text-lg uppercase tracking-tight text-white border-b border-hairline pb-2">
-                            {getCategoryName(ticket.tokenId)}
+                            {getCategoryName(ticket.tokenId, ticket.parsedEvent?.ticketClass)}
                           </h3>
 
                           <div className="grid gap-4">

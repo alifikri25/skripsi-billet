@@ -235,7 +235,7 @@ export default function CreatorPage() {
                 <div className="space-y-4">
                   <span className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-caption-uppercase text-[11px] tracking-wider w-fit">
                     <Sparkles className="w-3.5 h-3.5" />
-                    Billet Creator Portal
+                    Prasasti Creator Portal
                   </span>
                   <h1 className="font-display-xl text-3xl sm:text-5xl font-medium uppercase tracking-tight text-white leading-tight">
                     Luncurkan Tiket <span className="text-primary">On-Chain</span> dengan Batas Resale Otomatis.
@@ -277,7 +277,7 @@ export default function CreatorPage() {
                   {/* Title Bar */}
                   <div className="border-b border-hairline px-6 py-4 flex items-center justify-between">
                     <span className="font-caption-uppercase text-[11px] tracking-[1px] text-white">
-                      BILLET MONITOR
+                      PRASASTI MONITOR
                     </span>
                     <span className="font-caption-uppercase text-[9px] tracking-[1px] text-primary flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-corsa" />
@@ -486,7 +486,7 @@ export default function CreatorPage() {
               SISTEM PROTEKSI TERPADU
             </h2>
             <p className="font-body-sm text-[13px] text-body mt-2">
-              Billet mengoptimalkan kenyamanan kreator dan keamanan penonton lewat smart contracts.
+              Prasasti mengoptimalkan kenyamanan kreator dan keamanan penonton lewat smart contracts.
             </p>
           </div>
 
@@ -536,7 +536,7 @@ export default function CreatorPage() {
                   DOMPET BELUM TERHUBUNG
                 </h4>
                 <p className="font-body-sm text-[13px] text-body max-w-xs mb-6">
-                  Hubungkan dompet web3 Anda untuk memverifikasi lisensi penerbitan tiket Billet L2.
+                  Hubungkan dompet web3 Anda untuk memverifikasi lisensi penerbitan tiket Prasasti L2.
                 </p>
                 <div className="flex justify-center">
                   <ConnectKitButton />

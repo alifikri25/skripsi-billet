@@ -1,0 +1,171 @@
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Halaman Detail Event</div>
+    <div class="fig-s">Rute /events/[id]</div>
+  </div>
+  <div class="fig-d">Halaman detail menyajikan informasi lengkap satu acara di kolom kiri dan seluruh kelas tiket yang dijual di kolom kanan. Setiap kelas tiket adalah satu listing tersendiri pada kontrak marketplace, dengan harga dan sisa kuota yang dibaca langsung dari rantai.</div>
+
+  <div class="scr" style="height:880px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:56px;border-bottom:1px solid #c9ccd1;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:26px;height:26px;"></div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lbl">Beranda</div><div class="lblk">Event</div><div class="lbl">Tiket Saya</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="b" style="display:flex;align-items:stretch;">
+          <div class="tagk">Pembeli</div>
+          <div class="tag" style="border:0;display:flex;align-items:center;">Kreator</div>
+        </div>
+        <div class="btno">Hubungkan Dompet</div>
+      </div>
+    </div>
+
+    <div style="padding:0 18px;height:44px;box-sizing:border-box;display:flex;align-items:center;gap:8px;">
+      <div style="width:12px;height:1px;background:#16181d;"></div>
+      <div class="lblk">Kembali ke Katalog</div>
+    </div>
+
+    <div style="padding:20px 18px;border-top:1px solid #c9ccd1;border-bottom:1px solid #c9ccd1;height:190px;box-sizing:border-box;display:flex;flex-direction:column;gap:11px;background:#fafbfb;">
+      <div style="display:flex;gap:7px;">
+        <div class="tagk">Musik</div>
+        <div class="tag" style="background:#fff;">3 Kelas Tiket</div>
+      </div>
+      <div style="font-size:26px;font-weight:700;text-transform:uppercase;line-height:1.1;">Nama Acara Lengkap</div>
+      <div style="display:flex;gap:22px;margin-top:auto;">
+        <div class="lbl">Tanggal Acara</div>
+        <div class="lbl">Venue, Kota</div>
+        <div class="lbl mono">Organizer: 0x7a3f&hellip;9c21</div>
+      </div>
+    </div>
+
+    <div style="padding:18px;box-sizing:border-box;display:grid;grid-template-columns:62fr 38fr;gap:18px;">
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="b" style="padding:16px;display:flex;flex-direction:column;gap:9px;height:170px;box-sizing:border-box;">
+          <div class="h2">Deskripsi</div>
+          <div class="bar" style="width:96%;"></div>
+          <div class="bar" style="width:90%;"></div>
+          <div class="bar" style="width:94%;"></div>
+          <div class="bar" style="width:72%;"></div>
+          <div class="bar" style="width:88%;"></div>
+          <div class="bar" style="width:44%;"></div>
+        </div>
+        <div class="b" style="padding:16px;display:flex;flex-direction:column;gap:9px;height:180px;box-sizing:border-box;">
+          <div class="h2">Syarat &amp; Ketentuan</div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:4px;height:4px;background:#7b818a;"></div><div class="bar" style="width:80%;"></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:4px;height:4px;background:#7b818a;"></div><div class="bar" style="width:68%;"></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:4px;height:4px;background:#7b818a;"></div><div class="bar" style="width:86%;"></div></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:4px;height:4px;background:#7b818a;"></div><div class="bar" style="width:58%;"></div></div>
+          <div class="tx" style="margin-top:auto;font-style:italic;">Bila penyelenggara belum mengisi bagian ini, ditampilkan pesan bahwa deskripsi atau syarat belum tersedia.</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="h2">Pilih Tiket</div>
+
+        <div class="b" style="padding:14px;display:flex;flex-direction:column;gap:11px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;">Reguler</div>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div class="lbl">Harga</div>
+              <div class="mono" style="font-size:15px;font-weight:700;">Rp 150.000</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end;">
+              <div class="lbl">Sisa</div>
+              <div style="font-size:15px;font-weight:700;">42</div>
+            </div>
+          </div>
+          <div class="btn">Beli Tiket</div>
+        </div>
+
+        <div class="b" style="padding:14px;display:flex;flex-direction:column;gap:11px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;">VIP</div>
+            <div class="tag">Resale</div>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div class="lbl">Harga</div>
+              <div class="mono" style="font-size:15px;font-weight:700;">Rp 340.000</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end;">
+              <div class="lbl">Sisa</div>
+              <div style="font-size:15px;font-weight:700;">6</div>
+            </div>
+          </div>
+          <div class="btn">Beli Tiket</div>
+        </div>
+
+        <div class="b" style="padding:14px;display:flex;flex-direction:column;gap:11px;background:#f7f8f9;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;color:#7b818a;">VVIP</div>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div class="lbl">Harga</div>
+              <div class="mono" style="font-size:15px;font-weight:700;color:#7b818a;">Rp 750.000</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end;">
+              <div class="lbl">Sisa</div>
+              <div style="font-size:15px;font-weight:700;color:#7b818a;">0</div>
+            </div>
+          </div>
+          <div class="btn" style="background:#c9ccd1;color:#fff;">Habis Terjual</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid #c9ccd1;padding:20px 18px;display:grid;grid-template-columns:5fr 3fr 4fr;gap:22px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="b" style="width:18px;height:18px;"></div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+        </div>
+        <div class="bar" style="width:84%;"></div>
+        <div class="bar" style="width:62%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Platform</div>
+        <div class="bar" style="width:56%;"></div>
+        <div class="bar" style="width:70%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Teknologi</div>
+        <div class="bar" style="width:62%;"></div>
+        <div class="bar" style="width:52%;"></div>
+      </div>
+    </div>
+
+    <div class="n" style="left:26px;top:68px;">1</div>
+    <div class="n" style="left:26px;top:112px;">2</div>
+    <div class="n" style="left:26px;top:238px;">3</div>
+    <div class="n" style="left:38px;top:312px;">4</div>
+    <div class="n" style="left:38px;top:490px;">5</div>
+    <div class="n" style="left:668px;top:300px;">6</div>
+    <div class="n" style="left:900px;top:360px;">7</div>
+    <div class="n" style="left:668px;top:428px;">8</div>
+    <div class="n" style="left:668px;top:610px;">9</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Tautan kembali.</b> Mengembalikan pengguna ke katalog tanpa kehilangan penyaring yang sedang aktif.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Kategori dan jumlah kelas.</b> Menandai jenis acara serta banyaknya kelas tiket yang dijual pada acara ini.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Metadata acara.</b> Tanggal, venue dan kota, serta alamat dompet penyelenggara yang dipersingkat sebagai bukti keaslian penerbit tiket.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Deskripsi acara.</b> Teks bebas yang diisi penyelenggara saat menerbitkan tiket dan disimpan bersama metadata token.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Syarat dan ketentuan.</b> Ditulis penyelenggara per baris dan ditampilkan sebagai daftar berbutir.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Panel pemilihan tiket.</b> Menampilkan setiap kelas tiket sebagai kartu terpisah karena setiap kelas adalah listing tersendiri di kontrak.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Penanda RESALE.</b> Menandai kelas tiket yang dijual ulang oleh pemegang sebelumnya, bukan oleh penyelenggara.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Harga dan sisa kuota.</b> Harga per lembar dalam IDRX dan jumlah tiket yang masih tersedia pada listing tersebut.</div></div>
+      <div class="legi"><div class="legn">9</div><div class="legx"><b>Kondisi habis terjual.</b> Ketika sisa kuota nol, tombol dinonaktifkan dan berlabel Habis Terjual.</div></div>
+    </div>
+  </div>
+</div>

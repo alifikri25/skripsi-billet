@@ -11,3 +11,7 @@ node_modules/
 
 # typescript build info
 *.tsbuildinfo
+
+# cadangan .env otomatis dari deploy-all.sh
+.env.bak-*
+.env.local.bak-*

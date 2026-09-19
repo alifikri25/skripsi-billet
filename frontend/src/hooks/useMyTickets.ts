@@ -1,5 +1,7 @@
 import { useAccount, useReadContracts } from "wagmi";
-import { NFT_ABI, NFT_ADDRESS, SUPPORTED_TOKEN_IDS } from "@/config/contracts";
+import { NFT_ABI, NFT_ADDRESS } from "@/config/contracts";
+import { useTokenCatalog } from "@/hooks/useTokenCatalog";
+import type { ParsedEventInfo } from "@/hooks/useListings";
 import type { Abi } from "viem";
 import { baseSepolia } from "viem/chains";
 
@@ -15,18 +17,23 @@ export interface OwnedTicket {
   tokenId: number;
   balance: bigint;
   holders: TicketHolder[];
+  /** Metadata event dari on-chain, dipakai untuk nama event & kelas tiket. */
+  parsedEvent?: ParsedEventInfo;
 }
 
 /**
  * Fetches all tickets owned by the connected wallet.
- * Reads balanceOf and getTicketHolders for each token category.
+ * Reads balanceOf and getTicketHolders for each token category yang benar-benar
+ * ada on-chain (lihat useTokenCatalog) — bukan daftar tokenId statis, karena
+ * tokenId terus bertambah setiap kali kategori event baru dibuat.
  */
 export function useMyTickets() {
   const { address, isConnected } = useAccount();
+  const { tokenIds, categories, isLoading: isLoadingCatalog } = useTokenCatalog();
 
   // Build multicall: for each tokenId → [balanceOf, getTicketHolders]
   const contracts = isConnected && address
-    ? SUPPORTED_TOKEN_IDS.flatMap((tokenId) => [
+    ? tokenIds.flatMap((tokenId) => [
         {
           address: NFT_ADDRESS,
           abi: NFT_ABI as Abi,
@@ -47,7 +54,7 @@ export function useMyTickets() {
   const { data, isLoading, error, refetch } = useReadContracts({
     contracts,
     query: {
-      enabled: isConnected && !!address,
+      enabled: isConnected && !!address && tokenIds.length > 0,
       refetchInterval: 15_000,
     },
   });
@@ -55,7 +62,7 @@ export function useMyTickets() {
   const tickets: OwnedTicket[] = [];
 
   if (data) {
-    for (let i = 0; i < SUPPORTED_TOKEN_IDS.length; i++) {
+    for (let i = 0; i < tokenIds.length; i++) {
       const balanceResult = data[i * 2];
       const holdersResult = data[i * 2 + 1];
 
@@ -71,9 +78,10 @@ export function useMyTickets() {
 
       if (balance > BigInt(0) || holders.length > 0) {
         tickets.push({
-          tokenId: SUPPORTED_TOKEN_IDS[i],
+          tokenId: tokenIds[i],
           balance,
           holders,
+          parsedEvent: categories[i]?.parsedEvent,
         });
       }
     }
@@ -81,7 +89,7 @@ export function useMyTickets() {
 
   return {
     tickets,
-    isLoading,
+    isLoading: isLoadingCatalog || isLoading,
     error,
     isConnected,
     refetch,

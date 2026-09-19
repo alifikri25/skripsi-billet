@@ -1,0 +1,354 @@
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+scalar BigInt
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type ViewPageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+
+type Meta {
+  status: JSON
+}
+
+type Query {
+  listing(id: String!): listing
+  listings(where: listingFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): listingPage!
+  sale(id: String!): sale
+  sales(where: saleFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): salePage!
+  checkIn(id: String!): checkIn
+  checkIns(where: checkInFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): checkInPage!
+  _meta: Meta
+}
+
+type listing {
+  id: String!
+  seller: String!
+  tokenId: BigInt!
+  amount: BigInt!
+  pricePerUnit: BigInt!
+  isResale: Boolean!
+  active: Boolean!
+  createdAt: BigInt!
+  blockNumber: BigInt!
+}
+
+type listingPage {
+  items: [listing!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input listingFilter {
+  AND: [listingFilter]
+  OR: [listingFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  id_contains_nocase: String
+  id_not_contains_nocase: String
+  id_starts_with_nocase: String
+  id_ends_with_nocase: String
+  id_not_starts_with_nocase: String
+  id_not_ends_with_nocase: String
+  seller: String
+  seller_not: String
+  seller_in: [String]
+  seller_not_in: [String]
+  seller_contains: String
+  seller_not_contains: String
+  seller_starts_with: String
+  seller_ends_with: String
+  seller_not_starts_with: String
+  seller_not_ends_with: String
+  seller_contains_nocase: String
+  seller_not_contains_nocase: String
+  seller_starts_with_nocase: String
+  seller_ends_with_nocase: String
+  seller_not_starts_with_nocase: String
+  seller_not_ends_with_nocase: String
+  tokenId: BigInt
+  tokenId_not: BigInt
+  tokenId_in: [BigInt]
+  tokenId_not_in: [BigInt]
+  tokenId_gt: BigInt
+  tokenId_lt: BigInt
+  tokenId_gte: BigInt
+  tokenId_lte: BigInt
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  pricePerUnit: BigInt
+  pricePerUnit_not: BigInt
+  pricePerUnit_in: [BigInt]
+  pricePerUnit_not_in: [BigInt]
+  pricePerUnit_gt: BigInt
+  pricePerUnit_lt: BigInt
+  pricePerUnit_gte: BigInt
+  pricePerUnit_lte: BigInt
+  isResale: Boolean
+  isResale_not: Boolean
+  isResale_in: [Boolean]
+  isResale_not_in: [Boolean]
+  active: Boolean
+  active_not: Boolean
+  active_in: [Boolean]
+  active_not_in: [Boolean]
+  createdAt: BigInt
+  createdAt_not: BigInt
+  createdAt_in: [BigInt]
+  createdAt_not_in: [BigInt]
+  createdAt_gt: BigInt
+  createdAt_lt: BigInt
+  createdAt_gte: BigInt
+  createdAt_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+}
+
+type sale {
+  id: String!
+  listingId: String!
+  buyer: String!
+  amount: BigInt!
+  totalPrice: BigInt!
+  soldAt: BigInt!
+  blockNumber: BigInt!
+  transactionHash: String!
+}
+
+type salePage {
+  items: [sale!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input saleFilter {
+  AND: [saleFilter]
+  OR: [saleFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  id_contains_nocase: String
+  id_not_contains_nocase: String
+  id_starts_with_nocase: String
+  id_ends_with_nocase: String
+  id_not_starts_with_nocase: String
+  id_not_ends_with_nocase: String
+  listingId: String
+  listingId_not: String
+  listingId_in: [String]
+  listingId_not_in: [String]
+  listingId_contains: String
+  listingId_not_contains: String
+  listingId_starts_with: String
+  listingId_ends_with: String
+  listingId_not_starts_with: String
+  listingId_not_ends_with: String
+  listingId_contains_nocase: String
+  listingId_not_contains_nocase: String
+  listingId_starts_with_nocase: String
+  listingId_ends_with_nocase: String
+  listingId_not_starts_with_nocase: String
+  listingId_not_ends_with_nocase: String
+  buyer: String
+  buyer_not: String
+  buyer_in: [String]
+  buyer_not_in: [String]
+  buyer_contains: String
+  buyer_not_contains: String
+  buyer_starts_with: String
+  buyer_ends_with: String
+  buyer_not_starts_with: String
+  buyer_not_ends_with: String
+  buyer_contains_nocase: String
+  buyer_not_contains_nocase: String
+  buyer_starts_with_nocase: String
+  buyer_ends_with_nocase: String
+  buyer_not_starts_with_nocase: String
+  buyer_not_ends_with_nocase: String
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  totalPrice: BigInt
+  totalPrice_not: BigInt
+  totalPrice_in: [BigInt]
+  totalPrice_not_in: [BigInt]
+  totalPrice_gt: BigInt
+  totalPrice_lt: BigInt
+  totalPrice_gte: BigInt
+  totalPrice_lte: BigInt
+  soldAt: BigInt
+  soldAt_not: BigInt
+  soldAt_in: [BigInt]
+  soldAt_not_in: [BigInt]
+  soldAt_gt: BigInt
+  soldAt_lt: BigInt
+  soldAt_gte: BigInt
+  soldAt_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+  transactionHash_contains_nocase: String
+  transactionHash_not_contains_nocase: String
+  transactionHash_starts_with_nocase: String
+  transactionHash_ends_with_nocase: String
+  transactionHash_not_starts_with_nocase: String
+  transactionHash_not_ends_with_nocase: String
+}
+
+type checkIn {
+  id: String!
+  holder: String!
+  tokenId: BigInt!
+  holderIndex: BigInt!
+  checkedInAt: BigInt!
+  blockNumber: BigInt!
+  transactionHash: String!
+}
+
+type checkInPage {
+  items: [checkIn!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input checkInFilter {
+  AND: [checkInFilter]
+  OR: [checkInFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  id_contains_nocase: String
+  id_not_contains_nocase: String
+  id_starts_with_nocase: String
+  id_ends_with_nocase: String
+  id_not_starts_with_nocase: String
+  id_not_ends_with_nocase: String
+  holder: String
+  holder_not: String
+  holder_in: [String]
+  holder_not_in: [String]
+  holder_contains: String
+  holder_not_contains: String
+  holder_starts_with: String
+  holder_ends_with: String
+  holder_not_starts_with: String
+  holder_not_ends_with: String
+  holder_contains_nocase: String
+  holder_not_contains_nocase: String
+  holder_starts_with_nocase: String
+  holder_ends_with_nocase: String
+  holder_not_starts_with_nocase: String
+  holder_not_ends_with_nocase: String
+  tokenId: BigInt
+  tokenId_not: BigInt
+  tokenId_in: [BigInt]
+  tokenId_not_in: [BigInt]
+  tokenId_gt: BigInt
+  tokenId_lt: BigInt
+  tokenId_gte: BigInt
+  tokenId_lte: BigInt
+  holderIndex: BigInt
+  holderIndex_not: BigInt
+  holderIndex_in: [BigInt]
+  holderIndex_not_in: [BigInt]
+  holderIndex_gt: BigInt
+  holderIndex_lt: BigInt
+  holderIndex_gte: BigInt
+  holderIndex_lte: BigInt
+  checkedInAt: BigInt
+  checkedInAt_not: BigInt
+  checkedInAt_in: [BigInt]
+  checkedInAt_not_in: [BigInt]
+  checkedInAt_gt: BigInt
+  checkedInAt_lt: BigInt
+  checkedInAt_gte: BigInt
+  checkedInAt_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+  transactionHash_contains_nocase: String
+  transactionHash_not_contains_nocase: String
+  transactionHash_starts_with_nocase: String
+  transactionHash_ends_with_nocase: String
+  transactionHash_not_starts_with_nocase: String
+  transactionHash_not_ends_with_nocase: String
+}

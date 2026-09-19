@@ -1,0 +1,162 @@
+<div class="fig">
+  <div class="fig-h">
+    <div class="fig-t">Gambar 3.x &middot; Rancangan Antarmuka Halaman Tiket Saya</div>
+    <div class="fig-s">Rute /my-tickets</div>
+  </div>
+  <div class="fig-d">Halaman ini membaca saldo token tiket milik dompet yang sedang terhubung, lalu mengelompokkannya per acara dan kelas. Setiap lembar tiket yang sudah diregistrasikan atas nama seseorang ditampilkan sebagai satu kartu tersendiri.</div>
+
+  <div class="scr" style="height:820px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:56px;border-bottom:1px solid #c9ccd1;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="b" style="width:26px;height:26px;"></div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="lbl">Beranda</div><div class="lbl">Event</div><div class="lblk">Tiket Saya</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="b" style="display:flex;align-items:stretch;">
+          <div class="tagk">Pembeli</div>
+          <div class="tag" style="border:0;display:flex;align-items:center;">Kreator</div>
+        </div>
+        <div class="b mono" style="padding:8px 11px;font-size:11px;">0x7a3f&hellip;9c21</div>
+      </div>
+    </div>
+
+    <div style="padding:20px 18px;border-bottom:1px solid #c9ccd1;height:150px;box-sizing:border-box;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div class="lbl">User Tickets List</div>
+        <div class="h1">Tiket Saya</div>
+        <div class="bar" style="width:360px;"></div>
+        <div class="bar" style="width:250px;"></div>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div class="b" style="padding:7px 11px;"><span class="lblk">3 Tiket</span></div>
+        <div class="b" style="padding:7px 11px;"><span class="lbl">1 Terpakai</span></div>
+      </div>
+    </div>
+
+    <div style="padding:18px;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:11px;border-bottom:1px solid #c9ccd1;padding-bottom:8px;margin-bottom:14px;">
+        <div class="h2">Nama Acara &mdash; Reguler</div>
+        <div class="tag">2 Tiket</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+
+        <div class="b" style="height:250px;display:flex;flex-direction:column;">
+          <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+            <div class="lblk">Reguler</div>
+            <div class="tagk">Aktif</div>
+          </div>
+          <div style="padding:13px;display:flex;gap:13px;flex-grow:1;">
+            <div class="ph" style="width:78px;height:78px;flex-shrink:0;">QR</div>
+            <div style="display:flex;flex-direction:column;gap:7px;flex-grow:1;">
+              <div class="lbl">Pemegang</div>
+              <div style="font-size:12px;font-weight:600;">Nama Pemegang</div>
+              <div class="lbl">Nomor Induk Kependudukan</div>
+              <div class="mono" style="font-size:11px;">32&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;07</div>
+            </div>
+          </div>
+          <div style="padding:0 13px 13px;">
+            <div class="btno">Jual Kembali Tiket</div>
+          </div>
+        </div>
+
+        <div class="b" style="height:250px;display:flex;flex-direction:column;background:#fafbfb;">
+          <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+            <div class="lbl">Reguler</div>
+            <div class="tag">Terpakai</div>
+          </div>
+          <div style="padding:13px;display:flex;gap:13px;flex-grow:1;">
+            <div class="ph" style="width:78px;height:78px;flex-shrink:0;opacity:.55;">QR</div>
+            <div style="display:flex;flex-direction:column;gap:7px;flex-grow:1;">
+              <div class="lbl">Pemegang</div>
+              <div style="font-size:12px;font-weight:600;color:#7b818a;">Nama Pemegang</div>
+              <div class="lbl">Nomor Induk Kependudukan</div>
+              <div class="mono" style="font-size:11px;color:#7b818a;">31&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;44</div>
+            </div>
+          </div>
+          <div style="padding:0 13px 13px;">
+            <div class="tx">Sudah dipakai check-in; tidak dapat dijual kembali.</div>
+          </div>
+        </div>
+
+        <div class="b" style="height:250px;display:flex;flex-direction:column;">
+          <div style="padding:11px 13px;border-bottom:1px solid #c9ccd1;display:flex;align-items:center;justify-content:space-between;">
+            <div class="lblk">VIP</div>
+            <div class="tag">Dijual (Resale)</div>
+          </div>
+          <div style="padding:13px;display:flex;gap:13px;flex-grow:1;">
+            <div class="ph" style="width:78px;height:78px;flex-shrink:0;">QR</div>
+            <div style="display:flex;flex-direction:column;gap:7px;flex-grow:1;">
+              <div class="lbl">Pemegang</div>
+              <div style="font-size:12px;font-weight:600;">Nama Pemegang</div>
+              <div class="lbl">Nomor Induk Kependudukan</div>
+              <div class="mono" style="font-size:11px;">35&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;18</div>
+            </div>
+          </div>
+          <div style="padding:0 13px 13px;">
+            <div class="tx">Sedang terdaftar di pasar sekunder menunggu pembeli.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px;">
+        <div class="bd" style="height:126px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:14px;box-sizing:border-box;">
+          <div class="b" style="width:30px;height:30px;"></div>
+          <div class="h2">Dompet Belum Terhubung</div>
+          <div class="tx" style="text-align:center;max-width:330px;">Kondisi alternatif: tiket tidak dapat dimuat tanpa dompet, karena kepemilikan dibaca dari alamat dompet pengguna.</div>
+        </div>
+        <div class="bd" style="height:126px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:14px;box-sizing:border-box;">
+          <div class="b" style="width:30px;height:30px;"></div>
+          <div class="h2">Belum Punya Tiket</div>
+          <div class="tx" style="text-align:center;max-width:330px;">Kondisi alternatif: dompet terhubung namun belum memiliki tiket, disertai tautan menuju katalog acara.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #c9ccd1;padding:20px 18px;display:grid;grid-template-columns:5fr 3fr 4fr;gap:22px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="b" style="width:18px;height:18px;"></div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.06em;">PRASASTI</div>
+        </div>
+        <div class="bar" style="width:84%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Platform</div>
+        <div class="bar" style="width:56%;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="lblk">Teknologi</div>
+        <div class="bar" style="width:62%;"></div>
+      </div>
+    </div>
+
+    <div class="n" style="left:26px;top:76px;">1</div>
+    <div class="n" style="left:876px;top:150px;">2</div>
+    <div class="n" style="left:26px;top:212px;">3</div>
+    <div class="n" style="left:236px;top:262px;">4</div>
+    <div class="n" style="left:38px;top:302px;">5</div>
+    <div class="n" style="left:38px;top:362px;">6</div>
+    <div class="n" style="left:38px;top:472px;">7</div>
+    <div class="n" style="left:26px;top:562px;">8</div>
+  </div>
+
+  <div class="leg">
+    <div class="legt">Keterangan Fungsional</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 30px;">
+      <div class="legi"><div class="legn">1</div><div class="legx"><b>Judul halaman.</b> Menandai bahwa isi halaman bergantung pada dompet yang sedang terhubung.</div></div>
+      <div class="legi"><div class="legn">2</div><div class="legx"><b>Ringkasan kepemilikan.</b> Jumlah tiket yang dimiliki dan berapa di antaranya sudah dipakai untuk check-in.</div></div>
+      <div class="legi"><div class="legn">3</div><div class="legx"><b>Pengelompokan.</b> Tiket dikelompokkan menurut acara dan kelasnya, dengan jumlah lembar pada tiap kelompok.</div></div>
+      <div class="legi"><div class="legn">4</div><div class="legx"><b>Status tiket.</b> Tiga kemungkinan: Aktif, Terpakai (sudah check-in), dan Dijual bila tiket sedang terdaftar di pasar sekunder.</div></div>
+      <div class="legi"><div class="legn">5</div><div class="legx"><b>Kode QR.</b> Dipindai panitia di lokasi acara untuk memanggil data pemegang tiket dari rantai.</div></div>
+      <div class="legi"><div class="legn">6</div><div class="legx"><b>Identitas pemegang.</b> Nama dan NIK yang diregistrasikan saat pembelian; NIK ditampilkan tersamar dan hanya sebagian digitnya terlihat.</div></div>
+      <div class="legi"><div class="legn">7</div><div class="legx"><b>Aksi jual kembali.</b> Membuka formulir penjualan ulang; tidak tersedia untuk tiket yang sudah terpakai.</div></div>
+      <div class="legi"><div class="legn">8</div><div class="legx"><b>Kondisi alternatif.</b> Dompet belum terhubung, dan dompet terhubung namun belum memiliki tiket.</div></div>
+    </div>
+  </div>
+</div>
